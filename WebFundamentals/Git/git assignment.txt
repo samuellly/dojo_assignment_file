@@ -1,0 +1,350 @@
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop
+$ mkdir test
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop
+$ cd test
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/test
+$ ls
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/test
+$ touch index.html
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/test
+$ ls
+index.html
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/test
+$ touch styles.css aboutMe.txt
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/test
+$ ls
+aboutMe.txt  index.html  styles.css
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/test
+$ ls
+aboutMe.txt  index.html  styles.css
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/test
+$ cd aboutMe.txt
+bash: cd: aboutMe.txt: Not a directory
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/test
+$ git init
+Initialized empty Git repository in C:/Users/dongyhun/Desktop/test/.git/
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/test (master)
+$ git status
+On branch master
+
+Initial commit
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        aboutMe.txt
+        index.html
+        styles.css
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/test (master)
+$ git add aboutMe.txt
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/test (master)
+$ ls
+aboutMe.txt  index.html  styles.css
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/test (master)
+$ git status
+On branch master
+
+Initial commit
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+        new file:   aboutMe.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        index.html
+        styles.css
+
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/test (master)
+$ git commit
+[master (root-commit) 9bc1dda] update aboutMe.txt
+ 1 file changed, 3 insertions(+)
+ create mode 100644 aboutMe.txt
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/test (master)
+$ git log
+commit 9bc1dda2ab64a243513d6c84eb173928e35eb2c3
+Author: sam hur <gjqorgus900327@gmail.com>
+Date:   Wed Jan 25 07:18:57 2017 -0800
+
+    update aboutMe.txt
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/test (master)
+$ vim aboutMe.txt
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/test (master)
+$ vim aboutMe.txt
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/test (master)
+$ git log
+commit 9bc1dda2ab64a243513d6c84eb173928e35eb2c3
+Author: sam hur <gjqorgus900327@gmail.com>
+Date:   Wed Jan 25 07:18:57 2017 -0800
+
+    update aboutMe.txt
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/test (master)
+$ git log
+commit 9bc1dda2ab64a243513d6c84eb173928e35eb2c3
+Author: sam hur <gjqorgus900327@gmail.com>
+Date:   Wed Jan 25 07:18:57 2017 -0800
+
+    update aboutMe.txt
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/test (master)
+$ git commit
+On branch master
+Changes not staged for commit:
+        modified:   aboutMe.txt
+
+Untracked files:
+        index.html
+        styles.css
+
+no changes added to commit
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/test (master)
+$ ls
+aboutMe.txt  index.html  styles.css
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/test (master)
+$ git commit -m "added favortie moive to aboutMe"
+On branch master
+Changes not staged for commit:
+        modified:   aboutMe.txt
+
+Untracked files:
+        index.html
+        styles.css
+
+no changes added to commit
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/test (master)
+$ git log
+commit 9bc1dda2ab64a243513d6c84eb173928e35eb2c3
+Author: sam hur <gjqorgus900327@gmail.com>
+Date:   Wed Jan 25 07:18:57 2017 -0800
+
+    update aboutMe.txt
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/test (master)
+$ git commit 'added favorite movie to aboutMe'
+error: pathspec 'added favorite movie to aboutMe' did not match any file(s) known to git.
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/test (master)
+$ git commit "added favorite moive to aboutMe"
+error: pathspec 'added favorite moive to aboutMe' did not match any file(s) known to git.
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/test (master)
+$ cd aboutMe
+bash: cd: aboutMe: No such file or directory
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/test (master)
+$ git log
+commit 9bc1dda2ab64a243513d6c84eb173928e35eb2c3
+Author: sam hur <gjqorgus900327@gmail.com>
+Date:   Wed Jan 25 07:18:57 2017 -0800
+
+    update aboutMe.txt
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/test (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   aboutMe.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        index.html
+        styles.css
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/test (master)
+$ git add aboutMe.txt
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/test (master)
+$ git commit -m "added favorite moive to aboutMe"
+[master 7b416c4] added favorite moive to aboutMe
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/test (master)
+$ git log
+commit 7b416c4153c1bd35c47fe0f69dccd4497af46ecd
+Author: sam hur <gjqorgus900327@gmail.com>
+Date:   Wed Jan 25 08:02:29 2017 -0800
+
+    added favorite moive to aboutMe
+
+commit 9bc1dda2ab64a243513d6c84eb173928e35eb2c3
+Author: sam hur <gjqorgus900327@gmail.com>
+Date:   Wed Jan 25 07:18:57 2017 -0800
+
+    update aboutMe.txt
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/test (master)
+$ git revert -n
+usage: git revert [<options>] <commit-ish>...
+   or: git revert <subcommand>
+
+    --quit                end revert or cherry-pick sequence
+    --continue            resume revert or cherry-pick sequence
+    --abort               cancel revert or cherry-pick sequence
+    -n, --no-commit       don't automatically commit
+    -e, --edit            edit the commit message
+    -s, --signoff         add Signed-off-by:
+    -m, --mainline <n>    parent number
+    --rerere-autoupdate   update the index with reused conflict resolution if po                                                      ssible
+    --strategy <strategy>
+                          merge strategy
+    -X, --strategy-option <option>
+                          option for merge strategy
+    -S, --gpg-sign[=<key-id>]
+                          GPG sign commit
+
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/test (master)
+$ git revert -n "added favortie moive to aboutMe"
+fatal: bad revision 'added favortie moive to aboutMe'
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/test (master)
+$ git log
+commit 7b416c4153c1bd35c47fe0f69dccd4497af46ecd
+Author: sam hur <gjqorgus900327@gmail.com>
+Date:   Wed Jan 25 08:02:29 2017 -0800
+
+    added favorite moive to aboutMe
+
+commit 9bc1dda2ab64a243513d6c84eb173928e35eb2c3
+Author: sam hur <gjqorgus900327@gmail.com>
+Date:   Wed Jan 25 07:18:57 2017 -0800
+
+    update aboutMe.txt
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/test (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        index.html
+        styles.css
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/test (master)
+$ ls
+aboutMe.txt  index.html  styles.css
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/test (master)
+$ git revert -n HEAD
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/test (master|REVERTING)
+$ git log
+commit 7b416c4153c1bd35c47fe0f69dccd4497af46ecd
+Author: sam hur <gjqorgus900327@gmail.com>
+Date:   Wed Jan 25 08:02:29 2017 -0800
+
+    added favorite moive to aboutMe
+
+commit 9bc1dda2ab64a243513d6c84eb173928e35eb2c3
+Author: sam hur <gjqorgus900327@gmail.com>
+Date:   Wed Jan 25 07:18:57 2017 -0800
+
+    update aboutMe.txt
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/test (master|REVERTING)
+$ ls
+aboutMe.txt  index.html  styles.css
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/test (master|REVERTING)
+$ git log
+commit 7b416c4153c1bd35c47fe0f69dccd4497af46ecd
+Author: sam hur <gjqorgus900327@gmail.com>
+Date:   Wed Jan 25 08:02:29 2017 -0800
+
+    added favorite moive to aboutMe
+
+commit 9bc1dda2ab64a243513d6c84eb173928e35eb2c3
+Author: sam hur <gjqorgus900327@gmail.com>
+Date:   Wed Jan 25 07:18:57 2017 -0800
+
+    update aboutMe.txt
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/test (master|REVERTING)
+$ git status
+On branch master
+You are currently reverting commit 7b416c4.
+  (all conflicts fixed: run "git revert --continue")
+  (use "git revert --abort" to cancel the revert operation)
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   aboutMe.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        index.html
+        styles.css
+
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/test (master|REVERTING)
+$ git status
+On branch master
+You are currently reverting commit 7b416c4.
+  (all conflicts fixed: run "git revert --continue")
+  (use "git revert --abort" to cancel the revert operation)
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   aboutMe.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        index.html
+        styles.css
+
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/test (master|REVERTING)
+$ git add .
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/test (master|REVERTING)
+$ git commit -m "update"
+[master 6213387] update
+ 3 files changed, 1 insertion(+), 2 deletions(-)
+ create mode 100644 index.html
+ create mode 100644 styles.css
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/test (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/test (master)
+$

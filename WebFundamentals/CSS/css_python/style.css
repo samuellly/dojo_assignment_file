@@ -1,0 +1,148 @@
+/**{
+  outline: 1px dotted red;
+}*/
+.white{
+  color: white;
+}
+.corn-flower-blue{
+  color: #009AC7;
+}
+.myellow{
+  color: #AE9D0F;
+}
+#wrapper {
+  width: 990px;
+  background-color: #2d5073;
+  font-family: sans-serif;
+}
+#header img {
+  display: inline-block;
+  height: 42%;
+  width: 42%;
+  margin-right: 330px;
+}
+#search-area{
+  text-align: center;
+  width: 160px;
+}
+#search-bar {
+  display: inline-block;
+  vertical-align: top;
+  text-align: right;
+}
+#search-button {
+  width: 220px;
+  height: 40px;
+  background-color: #444444;
+  text-align: center;
+  padding-top: 15px;
+  border-radius: 15px;
+  box-shadow: 2px 2px 2px black;
+}
+
+#menu {
+  width: 840px;
+  display: inline-block;
+  color: white;
+  background-color: #4979a9;
+  border-radius: 5px;
+  margin-left: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  box-shadow: 2px 2px 2px black;
+}
+#menu li {
+ display: inline-block;
+ margin-right: 40px;
+}
+
+#side-menu {
+  text-align: center;
+  display: inline-block;
+  color: white;
+  height: 300px;
+  width: 250px;
+}
+#side-menu li {
+  margin-bottom: 10px;
+  list-style-position: inside;
+}
+#content-area {
+  vertical-align: top;
+  display: inline-block;
+  font-size: 1px;
+}
+#content{
+  vertical-align: top;
+  width: 600px;
+  position: relative;
+  text-align: center;
+  color: white;
+}
+.content-zen {
+  display: block;
+  text-align: center;
+  color: #dfc12a;
+  font-style: italic;
+  list-style-type: none;
+}
+.content-zen li{
+  padding-bottom: 10px;
+}
+#zen {
+  color: white;
+  font-style: normal;
+}
+#secondary-content{
+  width: 990px;
+  text-align: center;
+  background-color: white;
+  border-top: 10px solid darkslategray;
+}
+#secondary-content-right{
+  width: 320px;
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 15px;
+  font-size: 16px;
+  list-style-type:  decimal;
+}
+#secondary-content-right ul li  {
+  list-style-type: square;
+}
+#secondary-content-left ul li {
+
+  list-style-type: square;
+}
+
+#secondary-content-left {
+  width: 320px;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 150px;
+  font-size: 16px;
+}
+#secondary-content h3{
+  border-top: 5px solid #009AC7;
+  padding-top: 5px;
+}
+#third-content {
+  display: inline-block;
+  background-color: #275983;
+  width: 990px;
+  padding-top: 35px;
+
+}
+#third-content  li{
+  display: inline;
+  margin-right: 50px;
+  opacity: 0.5;
+  color: #87B9E5;
+
+}
+#copyright{
+  font-size: 0.1px;
+  color: #87B9E5;
+  margin-top: 20px;
+}

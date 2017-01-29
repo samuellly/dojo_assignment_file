@@ -1,0 +1,37 @@
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/DojoAssignments
+$ ls -R
+.:
+iOS/  MEAN/  netCore/  Python/  Ruby/  WebFundamentals/
+
+./iOS:
+aboutMe.txt
+
+./MEAN:
+aboutMe.txt
+
+./netCore:
+aboutMe.txt
+
+./Python:
+aboutMe.txt
+
+./Ruby:
+aboutMe.txt
+
+./WebFundamentals:
+aboutMe.txt  CSS/  Git/  HTML/  Javascript/
+
+./WebFundamentals/CSS:
+about.txt
+
+./WebFundamentals/Git:
+about.txt
+
+./WebFundamentals/HTML:
+about.txt  indentation.html
+
+./WebFundamentals/Javascript:
+about.txt
+
+dongyhun@¢Æ¢Æ¢Æ¢Æ¢Æ?¢Æ MINGW64 ~/Desktop/DojoAssignments
+$
