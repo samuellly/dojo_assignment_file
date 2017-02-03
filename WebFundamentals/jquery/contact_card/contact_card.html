@@ -1,0 +1,52 @@
+<html>
+   <head>
+       <title>The Codingdojo contact page</title>
+       <link rel="stylesheet" href="contact_card.css" type="text/css"/>
+       <script type="text/javascript" src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
+       <script type="text/javascript">
+         "use strict";
+         $(document).ready(function() {
+           console.log("jQuery working");
+           $("#form1").submit(function() {
+             if ($('#first').val() === "" || $('#last').val() === "" || $('#desc').val() === "") {
+			alert('Please fill in all fields, thanks!');
+			$('#first').focus();
+			return false;}
+             var firstName = $("#first").val();
+             var lastName = $("#last").val();
+             var description = $("#desc").val();
+
+             var card = "<div class='ccard'><h2>" + firstName + " " + lastName + "</h2><h4>Click here for description</h4><p>" + description + "</p></div>";
+
+             $("#contact").append(card);
+             $("#form1").each(function(){
+               this.reset();
+             });
+             return false;
+           });
+           $("#contact").on("click", ".ccard", function() {
+             $(this).children().toggle("slow");
+           });
+         });
+       </script>
+       </head>
+    <body>
+    	<main>
+    		<h1>Welcome to the Contact Page!</h1>
+    		<form id="form1">
+    			<label for="first">
+    				First Name: ;<input type="text" id="first" name="first" placeholder="sam" />
+    			</label>
+    			<label for="last">
+    				Last Name: ;<input type="text" id="last" name="last" placeholder="Hur" />
+    			</label>
+    			<label for="desc">
+    				Description: ;<textarea name="desc" id="desc" rows="8" cols="40" placeholder="Desciprtion"></textarea>
+    			</label>
+    			<input type="submit" id="add" name="add_user" value="Add User" />
+    		</form>
+    		<div id="contact">
+    		</div>
+    	</main>
+    </body>
+    </html>

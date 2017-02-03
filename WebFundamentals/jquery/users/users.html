@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="description" content="Adding a User with Jquery Assignment for Coding Dojo">
+	<title>User!</title>
+	<link rel="stylesheet" href="users.css" type="text/css" />
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+	$('document').ready(function() { //when the page is loaded...
+		$('#firstN').focus();
+		$('table').hide();
+			$('form').submit(function(){
+
+				if($('#firstN').val()===""|| $('#lastN').val()===""||$('#email').val()===""||$('#contact').val()===""){
+					alert('fill your empty box');
+					$('#firstN').focus();
+					return false;
+
+				}
+
+				else {
+					$('main').css('width','700px');
+					$('table').show();
+					$('table').append('<tr><td>'+ $('#firstN').val() + '</td><td>' + $('#lastN').val() + '</td><td>' + $('#email').val() + '</td><td>' + $('#phone').val() + '</td></tr>');
+					$('input').val('');
+					$('#add').val('add user');
+					$('#firstN').focus();
+					return false;
+					}
+			});
+	});
+	</script>
+</head>
+<body>
+
+	<main>
+		<table>
+			<tr>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Email Address</th>
+				<th>Contact #</th>
+			</tr>
+		</table>
+		<section>
+			<h1>Add a User</h1>
+			<form>
+				<label for="firstN">
+					First Name:<input type="text" id="firstN" placeholder="Sam">
+				</label>
+				<label for="lastN">
+					Last Name: <input type="text" id="lastN" placeholder="Hur">
+				</label>
+				<label for="email">
+					Email Address: <input type="text" id="email" placeholder="gjqorgus900327@gmail.com">
+				</label>
+				<label for="contact">
+					Contact#: <input type="text" id="contact" placeholder="(206)293-3818">
+				</label>
+				<input id="add" type="submit" name="submit" value="Add User">
+			</form>
+		</section>
+	</main>
+</body>
+</html>

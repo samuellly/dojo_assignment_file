@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>NinjaCat!</title>
+    <meta name="description" content="Behold the NinjaCat!">
+    <link rel="stylesheet" href="ninja_cat.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script language="javascript"> -->
+     $('document').ready(function() { //when the page is loaded...
+       console.log("jQuery is working!");
+        $('img').click(function() {
+            var alt = $(this).attr('data-alt-src');
+            var source = $(this).attr('src');
+            $(this).attr('src', alt);
+            $(this).attr('data-alt-src', source);
+        }); //click function
+    });
+    </script>
+</head>
+
+<body>
+    <h1>NinjaCat</h1>
+    <div class="puzzle">
+        <img src="C:\Users\dongyhun\Downloads\ninja-cat\img\cat0.png" data-alt-src="C:\Users\dongyhun\Downloads\ninja-cat\img\ninja0.png" alt="img0" id="0">
+        <img src="C:\Users\dongyhun\Downloads\ninja-cat\img\cat1.png" data-alt-src="C:\Users\dongyhun\Downloads\ninja-cat\img\ninja1.png" alt="img1" id="1">
+        <img src="C:\Users\dongyhun\Downloads\ninja-cat\img\cat2.png" data-alt-src="C:\Users\dongyhun\Downloads\ninja-cat\img\ninja2.png" alt="img2" id="2">
+        <img src="C:\Users\dongyhun\Downloads\ninja-cat\img\cat3.png" data-alt-src="C:\Users\dongyhun\Downloads\ninja-cat\img\ninja3.png" alt="img3" id="3">
+        <img src="C:\Users\dongyhun\Downloads\ninja-cat\img\cat4.png" data-alt-src="C:\Users\dongyhun\Downloads\ninja-cat\img\ninja4.png" alt="img4" id="4">
+    </body>
+</html>

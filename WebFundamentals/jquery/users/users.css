@@ -1,0 +1,47 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: sans-serif;
+}
+main{
+  width: 500px;
+  margin: 40px;
+}
+table{
+  width: 500px;
+  border:2px solid black;
+
+}
+tr th{
+  text-align: center;
+
+}
+section{
+  width: 300px;
+  margin-top: 40px;
+  text-align: left;
+}
+h1{
+  border-bottom: 3px solid black;
+
+}
+form{
+  margin-top: 40px;
+  text-align: right;
+  margin-left: 40px;
+  display: table;
+}
+label{
+
+  text-align: left;
+  display: block;
+  margin-bottom: 10px;
+}
+#add{
+  margin-top: 60px;
+  text-align: left;
+}
+input{
+  vertical-align: top;
+}

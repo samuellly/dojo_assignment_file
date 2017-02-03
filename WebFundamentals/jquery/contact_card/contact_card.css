@@ -1,0 +1,48 @@
+
+* {
+margin:0px;
+padding:0px;
+color: #465459;
+outline: 1px dotted red;
+}
+main{
+  border: 2px solid black;
+  width: 800px;
+
+}
+
+main h1{
+
+  margin-bottom: 40px;
+}
+form{
+  margin-bottom: 10px;
+  display: inline-block;
+
+}
+
+form label{
+  display: flex;
+  margin-bottom: 20px;
+
+}
+.ccard {
+  text-align: center;
+  width: 235px;
+  padding: 10px;
+  /*height: 100px;*/
+  border: 2px solid black;
+  margin-bottom: 20px;
+  word-wrap: break-word;
+  vertical-align: top;
+
+}
+.ccard p {
+  display: none;
+}
+#contact{
+   margin-left: 20px;
+   width: 300px;
+   vertical-align: top;
+   display: inline-block;
+}
