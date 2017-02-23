@@ -1,0 +1,17 @@
+<TYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<meta name="description" content="counter" />
+		<title>Counter</title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}" />
+<body>
+	<h1>Counter</h1>
+	<p>{{ session['counter'] }} times</p>
+  <a href="/"><button type="button" name="nbtn">Add 1!</button></a>
+	<a href="/a"><button type="button" name="nbtn">Add 2!</button></a>
+	<a href="/b"><button type="button" name="nbtn">Reset Counter</button></a>
+</body>
+</html>

@@ -1,0 +1,12 @@
+* {
+margin:0px;
+padding:0px;
+color: #465459;
+outline: 1px dotted red;
+}
+#contact{
+   margin-left: 20px;
+   width: 300px;
+   vertical-align: top;
+   display: inline-block;
+}

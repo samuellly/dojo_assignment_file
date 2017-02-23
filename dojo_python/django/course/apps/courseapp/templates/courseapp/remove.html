@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="description" content="Coding Dojo Python/Django Courses assignment">
+	{% load staticfiles %}
+	<title>Remove Course</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'courseapp/css/styles.css' %}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body>
+	<main>
+		<h1>Are you sure you would like to delete the following course?</h1>
+		<div id="removewrapper">
+			<span>Name:</span>
+			<p>{{ course.name }}</p>
+			<span>Description:</span>
+			<p>{{ course.description }}</p>
+			<a href="/" class="btn btn-dflt">No</a>
+			<a href="/remove/{{ course.id }}" class="btn" id="yes">Yes! I would like to delete this course.</a>
+		</div>
+	</main>
+</body>
+</html>

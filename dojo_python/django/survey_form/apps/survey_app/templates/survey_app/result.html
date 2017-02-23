@@ -1,0 +1,26 @@
+<TYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<meta name="description" content="Landing page assignment for Coding Dojo's Python Syllabus using Flask" />
+		<title>DOJO SURVEY</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	</head>
+	<body>
+		<table>
+			<div> Thank you for submitting this form! You have submitted this form {{ request.session.counter }} times now
+			</div>
+			
+			<div id="rightWrap">
+			{% for info in request.session.data.items %}
+				<li class="list-group-item">{{ info.0 }}: {{info.1}}</li>
+			{% endfor %}
+				
+			
+			</div>
+		</table>
+	     	<a id="home" href="/">Home</a>
+	</body>
+</html>

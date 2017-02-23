@@ -1,0 +1,164 @@
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+
+table {
+	border-spacing: 0;
+
+	border-collapse: collapse;
+}
+.box {
+	border: 5px;
+	border-style: groove;
+	border-color: #102554;
+	border-radius: 8px;
+}
+#pokedex {
+	width: 35%;
+	display: inline-block;
+	position: sticky;
+	vertical-align: top;
+  background: url("pokemon.png") ;
+  background-size: 600px;
+  padding-bottom: 10px;
+
+}
+#pokedex header{
+	border-radius: 4px;
+	border-color: black;
+	border: 4px;
+}
+#icons {
+	width: 60%;
+	display: inline-block;
+	vertical-align: top;
+}
+
+header{
+	background: rgba(248,80,50,1);
+background: -moz-linear-gradient(top, rgba(248,80,50,1) 0%, rgba(241,111,92,1) 50%, rgba(246,41,12,1) 51%, rgba(240,47,23,1) 71%, rgba(231,56,39,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(248,80,50,1)), color-stop(50%, rgba(241,111,92,1)), color-stop(51%, rgba(246,41,12,1)), color-stop(71%, rgba(240,47,23,1)), color-stop(100%, rgba(231,56,39,1)));
+background: -webkit-linear-gradient(top, rgba(248,80,50,1) 0%, rgba(241,111,92,1) 50%, rgba(246,41,12,1) 51%, rgba(240,47,23,1) 71%, rgba(231,56,39,1) 100%);
+background: -o-linear-gradient(top, rgba(248,80,50,1) 0%, rgba(241,111,92,1) 50%, rgba(246,41,12,1) 51%, rgba(240,47,23,1) 71%, rgba(231,56,39,1) 100%);
+background: -ms-linear-gradient(top, rgba(248,80,50,1) 0%, rgba(241,111,92,1) 50%, rgba(246,41,12,1) 51%, rgba(240,47,23,1) 71%, rgba(231,56,39,1) 100%);
+background: linear-gradient(to bottom, rgba(248,80,50,1) 0%, rgba(241,111,92,1) 50%, rgba(246,41,12,1) 51%, rgba(240,47,23,1) 71%, rgba(231,56,39,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f85032', endColorstr='#e73827', GradientType=0 );
+	color:white;
+	margin:10px;
+	text-align: center;
+	width: 94%;
+
+}
+h1 {
+	font-size: 24pt;
+	font-size: 250%;
+}
+h2{
+	margin-left: 10px;
+	font-size: 18pt;
+}
+#wrapper{
+	padding: 20px;
+	min-width: 880px;
+}
+#iconWrapper{
+padding: 0px;
+
+}
+.iconBox {
+	max-width: 90px;
+	padding: 5px;
+	margin: 0 auto;
+  background:red;
+  background: -moz-linear-gradient(top, rgba(248,80,50,1) 0%, rgba(241,111,92,1) 50%, rgba(246,41,12,1) 51%, rgba(240,47,23,1) 71%, rgba(231,56,39,1) 100%);
+  background: -webkit-linear-gradient(top, rgba(248,80,50,1) 0%, rgba(241,111,92,1) 50%, rgba(246,41,12,1) 51%, rgba(240,47,23,1) 71%, rgba(231,56,39,1) 100%);
+
+  display: inline-block;
+}
+#iconHolder{
+width:90px;
+}
+#portrait{
+width: 100%;
+min-height: 250px;
+
+	}
+#portBox{
+	width:80%;
+
+	position: relative;
+	top: 20px;
+	left:10%;
+	display: block;
+
+}
+#typeBox{
+	border-top: 1px ;
+	border-color: black;
+	margin-top: 50px;
+	display: block;
+}
+#types  {
+	text-align: right;
+	margin-right: 20px;
+	font-size: 18pt;
+	margin-top: 12pt;
+}
+#abilitiesBox{
+	margin-bottom: 40px;
+	padding: 10px;
+}
+#abilities {
+	font-size: 18pt;
+	margin: 5px 10px 5px 10px;
+}
+.stats {
+	background: rgba(76,76,76,1);
+	background: -moz-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(89,89,89,1) 12%, rgba(102,102,102,1) 25%, rgba(71,71,71,1) 39%, rgba(44,44,44,1) 50%, rgba(0,0,0,1) 51%, rgba(17,17,17,1) 60%, rgba(43,43,43,1) 76%, rgba(28,28,28,1) 91%, rgba(19,19,19,1) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(76,76,76,1)), color-stop(12%, rgba(89,89,89,1)), color-stop(25%, rgba(102,102,102,1)), color-stop(39%, rgba(71,71,71,1)), color-stop(50%, rgba(44,44,44,1)), color-stop(51%, rgba(0,0,0,1)), color-stop(60%, rgba(17,17,17,1)), color-stop(76%, rgba(43,43,43,1)), color-stop(91%, rgba(28,28,28,1)), color-stop(100%, rgba(19,19,19,1)));
+	background: -webkit-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(89,89,89,1) 12%, rgba(102,102,102,1) 25%, rgba(71,71,71,1) 39%, rgba(44,44,44,1) 50%, rgba(0,0,0,1) 51%, rgba(17,17,17,1) 60%, rgba(43,43,43,1) 76%, rgba(28,28,28,1) 91%, rgba(19,19,19,1) 100%);
+	background: -o-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(89,89,89,1) 12%, rgba(102,102,102,1) 25%, rgba(71,71,71,1) 39%, rgba(44,44,44,1) 50%, rgba(0,0,0,1) 51%, rgba(17,17,17,1) 60%, rgba(43,43,43,1) 76%, rgba(28,28,28,1) 91%, rgba(19,19,19,1) 100%);
+	background: -ms-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(89,89,89,1) 12%, rgba(102,102,102,1) 25%, rgba(71,71,71,1) 39%, rgba(44,44,44,1) 50%, rgba(0,0,0,1) 51%, rgba(17,17,17,1) 60%, rgba(43,43,43,1) 76%, rgba(28,28,28,1) 91%, rgba(19,19,19,1) 100%);
+	background: linear-gradient(to bottom, rgba(76,76,76,1) 0%, rgba(89,89,89,1) 12%, rgba(102,102,102,1) 25%, rgba(71,71,71,1) 39%, rgba(44,44,44,1) 50%, rgba(0,0,0,1) 51%, rgba(17,17,17,1) 60%, rgba(43,43,43,1) 76%, rgba(28,28,28,1) 91%, rgba(19,19,19,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313', GradientType=0 );
+
+	margin-top: 10px;
+	margin-bottom: 10px;
+
+	color: white;
+	border-bottom: 20px;
+	padding: 10px 0px 10px 0px;
+	display: inline-block;
+	vertical-align: top;
+	width: 100%;
+}
+#statName{
+	width: 60%;
+line-height: 1.5;
+	display: inline-block;
+}
+#statNum{
+
+	text-align: right;
+	margin-right: 5px;
+	line-height: 1.5;
+	width: 35%;
+	display: inline-block;
+}
+#attack{
+	display: inline-block;
+}
+#defense{
+	display: inline-block;
+}
+#pokeName {
+	text-align: center;
+	font-size: 24pt;
+}
+.fixed {position:fixed; top:0}

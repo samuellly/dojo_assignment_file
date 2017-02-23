@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="description" content="Email Validation assignment for Coding Dojo as part of the Python track">
+	<title>Email Validation</title>
+	<style media="screen">
+		* {
+			box-sizing: border-box;
+		}
+		#topBox {
+			display: inline-block;
+			width: 100%;
+			margin: -25px auto 10px;
+			padding: 5px;
+			background-color: red;
+			border: 1px solid black;
+			box-shadow: 1px 1px 5px gray;
+		}
+		form {
+			width: 25%;
+			height: 9em;
+			margin: 100px auto;
+			padding: 50px;
+			border: 1px solid gray;
+			box-shadow: 1px 1px 5px gray;
+		}
+		form input:nth-child(2) {
+			width: 18em;
+		}
+		form input:last-child {
+			margin: 10px;
+			float: right;
+		}
+	</style>
+</head>
+<body>
+	<form action="/addaddy" method="post">
+		{% with errors = get_flashed_messages() %}
+			{% if errors %}
+				{% for error in errors %}
+					<span id="topBox">{{ error }}</span>
+				{% endfor %}
+			{% endif %}
+		{% endwith %}
+		<label for="email">Email: </label>
+		<input type="text" name="email">
+		<input type="submit" name="submit" value="Submit">
+	</form>
+</body>
+</html>

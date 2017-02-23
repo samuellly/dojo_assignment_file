@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<meta name="description" content="Landing page assignment for Coding Dojo's Python Syllabus using Flask"/>
+		<title>DOJO </title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}" />
+	</head>
+	<body>
+		<h2>Please fill the survey form</h2>
+		{% with messages = get_flashed_messages() %}
+				{% if messages %}
+					{% for message in messages %}
+							<p class='message'>{{ message }}</p>
+						{% endfor %}
+				{% endif %}
+		{% endwith %}
+			<form class="" action="/result" method="post">
+				<label for="name">Name : </label>
+				<input type="text" name="name" placeholder="Coding Dojo" >
+				<label for="location">Location : </label>
+			<select name="location" id="location">
+					<option value="Seattle" selected>Seattle</option>
+					<option value="Silicon Valley">Silicon Valley</option>
+					<option value="Los Angeles">Los Angeles</option>
+					<option value="Dallas">Dallas</option>
+					<option value="Washington DC">Washington DC</option>
+					<option value="Chicago">Chicago</option>
+			</select>
+			<label for="language">Language : </label>
+			<select name="language" id="language">
+					<option value="HTML">HTML</option>
+					<option value="CSS">CSS</option>
+					<option value="JAVA">JAVA</option>
+					<option value="C#">C#</option>
+					<option value="IOS">IOS</option>
+					<option value="RUBY">RUBY</option>
+			</select>
+				<label for="comment">Comment(optional) :</label>
+				<textarea name="comment" id="comment" rows="8" cols="40" placeholder="Tell us your story"></textarea>
+				<input type="submit" value="submit">
+			</form>
+	</body>
+	</html>

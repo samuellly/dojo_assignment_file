@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="utf-8">
+      {% load staticfiles %}
+      <link rel="stylesheet" type="text/css" href="{% static 'email_app/css/styles.css' %}">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <title>email_validation</title>
+    <!--  <style media="screen"> -->
+</head>
+<body>
+	  <main class="sixty">
+
+
+			 <h2>The email address you entered ({{email}}) is a VALID email address!  Thank you!'</h2>
+
+    <table>
+			<h1>Email Addresses Entered:</h1>
+			{% for email in emails %}
+				<tr>
+					<td>{{email.email}}</td>
+					<td>{{email.created_at}}</td>
+					<td><a href="/email_valid/{{email.id}}/delete">Delete Email</a></td>
+				</tr>
+			{% endfor %}
+		</table>
+		<a href="/" class="btn btn-dflt">Go Back</a>
+	</main>
+</body>
+</html>

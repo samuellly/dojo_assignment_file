@@ -1,0 +1,58 @@
+/** {
+margin:0px;
+padding:0px;
+color: #465459;
+outline: 1px dotted red;
+}*/
+header{
+  text-align: center;
+  /*background: #490502;*/
+
+
+
+}
+#heading h1{
+  font-style: italic;
+  font-family: serif;
+  color: white;
+}
+#picture{
+  background: url("map.jpg");
+  background-size: 1438px 700px;
+  height: 700px;
+  margin: 50px;
+
+}
+.background{
+  display: inline-block;
+
+}
+.top{
+  display: flex;
+  border: 2px solid
+}
+.lannister{
+  display: inline-block;
+}
+.stark{
+  display: inline-block;
+}
+.targaryen{
+  display: inline-block;
+}
+#description{
+   margin-left: 20px;
+   width: 300px;
+   height: 200px;
+
+   display: inline-block;
+
+
+
+}
+#description h2{
+  color: #490502;;
+  background-color: white;
+  font-size: 12px;
+background-image: url("gameofthethrones.jpg");
+}

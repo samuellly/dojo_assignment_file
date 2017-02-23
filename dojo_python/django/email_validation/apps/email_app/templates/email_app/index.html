@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        {% load staticfiles %}
+        <link rel="stylesheet" type="text/css" href="{% static 'email_app/css/styles.css' %}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <title>email_validation</title>
+        <style media="screen">
+      		* {
+      			box-sizing: border-box;
+      		}
+      		#topBox {
+      			display: inline-block;
+
+      			background-color: red;
+      			border: 1px solid black;
+      			box-shadow: 1px 1px 5px gray;
+      		}
+      		form {
+      			width: 25%;
+      			height: 9em;
+      			margin:  auto;
+      			padding: 50px;
+      			border: 1px solid gray;
+      			box-shadow: 1px 1px 5px gray;
+      		}
+      		form input:nth-child(2) {
+      			width: 18em;
+      		}
+      		form input:last-child {
+      			margin: 10px;
+      			float: right;
+      		}
+          div{
+            text-align: center;
+            margin-top: 30px;
+          }
+      	</style>
+      </head>
+      <body>
+      	  <div>
+            {% if request.session.errors %}
+          		{% for error in request.session.errors %}
+      					<span id="topBox">{{ error }}</span>
+      				{% endfor %}
+      			{% endif %}
+          </div>
+          <form action="/email_valid" method="post">
+	          {% csrf_token %}
+      		  <label for="email">Email: </label>
+      		  <input type="text" name="email">
+      		  <input type="submit" name="submit" value="Submit">
+      	  </form>
+        <script type="text/javascript">
+		      var email = document.getElementById('email');
+		      email.focus();
+	      </script>
+      </body>
+</html>

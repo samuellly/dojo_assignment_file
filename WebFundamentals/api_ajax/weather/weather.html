@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="weather.css" type="text/css"/>
+    <script type="text/javascript" src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
+    <script type="text/javascript">
+
+  $(document).ready(function() {
+    $('#form1').submit(function() {
+      if ($('#place').val() === ""){
+        alert('Please fill in all fields, thanks!');
+        $('#first').focus();
+        return false;}
+        var location = $("#place").val();
+                  $.get("http://api.openweathermap.org/data/2.5/weather?q=" + location +"&units=imperial&appid=c52e7c76950df95799f430434342e955", function(res) {
+                    var tempData = "";
+                    tempData += "<h1>" + res.name + "</h1>";
+                    tempData += "<h3>Temperature: " + res.main.temp + "</h3>";
+                    $("#contact").html(tempData);
+                  }, "json");
+                  $("#form1").each(function(){
+                    this.reset();
+                  });
+                  return false;
+                });
+              });
+
+</script>
+  <title>Document</title>
+</head>
+<body>
+  <form id="form1">
+    <label for="first">
+      <input type="text" id="place" name="place" placeholder="place" >
+    </label>
+  <label>
+    <input type="submit" id="add" name="add_user" value="Search Weather" >
+  </label>
+  </form>
+  <div id="contact">
+  </div>
+</body>
+</html>

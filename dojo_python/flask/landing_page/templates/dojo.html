@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<meta name="description" content="Landing page assignment for Coding Dojo's Python Syllabus using Flask"/>
+		<title>Ninjas Page</title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}" />
+	</head>
+	<body id="dojo">
+		<section id="formWrap">
+			<h2>Please fill out the form below to apply to get Ninja News</h2>
+			<form>
+				<label>
+					Name: <input type="text" name="name" placeholder="Ninja" />
+				</label>
+				<label>
+					Address: <input type="text" name="addy" placeholder="123 ninja rd" />
+				</label>
+				<label>
+					City: <input type="text" name="city" placeholder="Ninjitsu City" />
+				</label>
+				<label>
+					State: <input type="text" name="state" placeholder="Washington" />
+				</label>
+				<label>
+					Zip: <input type="text" name="zip" placeholder="12345" />
+				</label>
+				<label>
+					Phone: <input type="text" name="phone" placeholder="123-4567" />
+				</label>
+				<label>
+					E-mail: <input type="text" name="email" placeholder="ninja@ninja.com" />
+				</label>
+				<label>
+					Prior Ninja Status: <input type="text" name="status" placeholder="Budding Ninja" />
+				</label>
+			</form>
+			<a href="/" class="nbutton button">Submit</a>
+		</section>
+	</body>
+</html>

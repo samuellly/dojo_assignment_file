@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="eng">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Pokemon Lookup</title>
+    <meta name="description" content="A small website meant to look up Pokemon in a directory.">
+    <link rel="stylesheet" href="pokedex.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() { //jquery
+      for (var i = 1; i < 152; i++) {
+              var imgOut = "<div class='iconBox'><img class= 'iconHolder' id='" + i + "' src='http://pokeapi.co/media/img/" + i + ".png'></div>";
+              $("#iconWrapper").append(imgOut);
+          }
+          $("img.iconHolder").click(function() {
+              var pokeId = $(this).attr("id");
+              console.log(pokeId);
+              setTimeout(function() {
+                  var imgOut = "http://pokeapi.co/media/img/" + pokeId + ".png";
+                  $("#portrait").attr('src', imgOut);
+              }, 200)
+              $.get("http://pokeapi.co/api/v1/pokemon/" + pokeId + "/", function(res) {
+                  // Set name
+                  var outputHTML = "";
+                  outputHTML += res.name;
+                  console.log(outputHTML);
+                  $('#pokeName').html(outputHTML);
+                  console.log(res.name);
+                  // Set Attack
+                  var outputHTML = "";
+                  outputHTML += res.attack;
+                  console.log(outputHTML);
+                  $('#attackVal').html(outputHTML);
+                  console.log(res.attack);
+                  // Set Defense
+                  var outputHTML = "";
+                  outputHTML += res.defense;
+                  $('#defVal').html(outputHTML);
+                  //set types
+                  var outputHTML = "";
+                  outputHTML += res.abilities;
+                  $("#abilities").html("<h2>"+res.abilities[0].name+ "</h2");
+                  var outputHTML = "";
+                  outputHTML += res.types;
+                  $("#types").html("<h2>"+res.types[0].name+ "</h2");
+              }, "json");
+            });
+          });
+  </script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <header id="heading" class="box">
+            <h1>Pokedex!</h1>
+        </header>
+        <div id="icons" class="box">
+            <div id="iconWrapper">
+
+            </div>
+        </div>
+
+        <div id='pokedex' class="box">
+            <header>
+                <h1> Pokedex </h1>
+            </header>
+            <p>
+                <h2>Name: </h2><p id='pokeName'>None Selected</p>
+            </p>
+            <div class="box" id="portBox">
+                <img id="portrait" src="http://www.pym.org/wp-content/uploads/2015/09/question_mark.png" alt="character portrait" />
+            </div>
+            <div id="typeBox">
+                <h2>Types: </h2>
+                <p id="types">
+                </p>
+            </div>
+
+            <div class="stats">
+                <div id="statName">
+                    <h2 id="attack">Attack Value:</h2>
+                    <br>
+                    <h2 id="defense">Defense Value: </h2>
+                </div>
+                <div id="statNum">
+                    <h2 id="attackVal"> </h2>
+                    <h2 id="defVal"> </h2>
+                </div>
+            </div>
+            <div id="abilitiesBox">
+                <h2>Abilities:</h2>
+                <p id="abilities"></p>
+            </div>
+        </div>
+        <footer>
+
+        </footer>
+    </div>
+    </div>
+</body

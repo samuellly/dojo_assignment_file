@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="description" content="Coding Dojo Python/Django Courses assignment">
+	{% load staticfiles %}
+	<title>Course Comments</title>
+	<link rel="stylesheet" href="{% static 'courseapp/css/styles.css' %}" media="screen">
+</head>
+<body>
+	<main>
+		<h1>Here are the comments for this course!</h1>
+		<div id="commentwrapper">
+			<span>Course Name:</span>
+			<p>{{ course.name }}</p>
+			<span>Course Description:</span>
+			<p>{{ course.description }}</p>
+			<span>Course Comments:</span>
+			{% if course.comment_set %}
+				{% for comment in course.comment_set.all %}
+					<p>{{ comment.comment }}&nbsp;&nbsp;&nbsp;&nbsp;({{ comment.created_at }})</p>
+					<hr>
+					<span></span>
+				{% endfor %}
+			{% endif %}
+			<form action="/addcomment/{{course.id}}" method="post">
+				{% csrf_token %}
+				<label for="comment">Comment:</label>
+				<textarea name="comment" rows="8" cols="40"></textarea>
+				<input type="submit" name="submit" value="Submit">
+			</form>
+			<a href="/" id="back" class="btn btn-dflt">Go Back</a>
+		</div><!-- end_of_commentwrapper-->
+	</main>
+</body>
+</html>

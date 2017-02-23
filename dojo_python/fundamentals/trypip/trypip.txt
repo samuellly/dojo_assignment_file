@@ -1,0 +1,8 @@
+pip install Django
+pip list
+pip install Django (We know you already ran this one. What information do you see returned in terminal after this command?)
+pip freeze (What's the difference between freeze and list?)
+First cd into your Desktop directory (cd ~/Desktop), then run this command: pip freeze > requirements.txt. What do you see when you ls? What's inside this file?
+pip show Django
+pip uninstall Django
+pip search Flask

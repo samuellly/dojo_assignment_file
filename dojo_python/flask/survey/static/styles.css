@@ -1,0 +1,52 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	color: #2d2d2d;
+}
+body{
+  display: inline-block;
+  border: 2px solid black;
+
+}
+body h2{
+  text-align:  center;
+}
+label {
+	display: inline-block;
+	width: 40%;
+	margin: 15px 0 0 15%;
+	font-size: 1.3em;
+  background-color: rgba(231, 231, 231, 0.7)
+
+}
+input,select,textarea{
+
+  display: inline-block;
+  font-size: 1em;
+  background-color: rgba(231, 231, 231, 0.7)
+}
+input {
+	padding: 2px;
+
+}
+
+#comment {
+	width: 66%;
+	height: 4em;
+	margin: 10px 0 0 15%;
+}
+table{
+  display: inline-block;
+}
+#leftWrap, #rightWrap {
+	display: inline-block;
+	font-size: 1.3em;
+
+	margin: 0 0 20px;
+}
+span{display: block;
+}
+#home{
+  display: block;
+}

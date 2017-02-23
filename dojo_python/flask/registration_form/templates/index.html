@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Basic Validations</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" media="screen">
+</head>
+<body>
+	<main>
+		<h1>Please enter information to register:</h1>
+		<p id="pwordError" class="hidden red"></p>
+		{% with messages = get_flashed_messages() %}
+		{% if messages %}
+		{% for message in messages %}
+		<p class="{{ session['class'] }}">{{ message }}</p>
+		{% endfor %}
+		{% endif %}
+		{% endwith %}
+		<form action="/process" method="post">
+			<label for="email">E-mail: </label>
+			<input type="text" name="email" id="email">
+			<label for="first_name">First Name: </label>
+			<input type="text" name="first_name">
+			<label for="last_name">Last Name: </label>
+			<input type="text" name="last_name">
+			<label for="password">Password: </label>
+			<input type="password" name="password" id="password" onkeyup="checkPword()" onkeydown="checkPword()">
+			<label for="confirm">Confirm Password: </label>
+			<input type="password" name="confirm" id="confirm" onkeyup="checkConf()" onkeydown="checkConf()">
+			<input type="submit" name="submit" value="Submit">
+		</form>
+	</main>
+	<script type="text/javascript">
+		var pwordError = document.getElementById('pwordError'),
+			email = document.getElementById('email'),
+			pword = document.getElementById('password'),
+			conf = document.getElementById('confirm'),
+			pwordReg = /(?=^.{8,}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+}{:;'?/><.;,])(?!.*\s).*$/;
+		function checkPword() {
+			if (pword.value.match(pwordReg)) {
+				pwordError.className = "hidden";
+				pword.style.border = "3px solid green";
+			} else {
+				pwordError.innerHTML = "Password must be at least 8 characters and include one uppercase letter, one lowercase letter, and one special character";
+				pwordError.className = "";
+				pword.style.border = "3px solid red";
+			}
+		}
+		function checkConf() {
+			if (conf.value != pword.value) {
+				conf.style.border = "3px solid red";
+			} else {
+				conf.style.border = "3px solid green";
+			}
+		}
+		email.focus();
+	</script>
+</body>
+</html>

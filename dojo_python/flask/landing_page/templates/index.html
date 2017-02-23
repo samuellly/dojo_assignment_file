@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<meta name="description" content="Landing page assignment for Coding Dojo's Python Syllabus using Flask"/>
+		<title>Landing Page</title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}" />
+	</head>
+	<body id="index">
+		<div id="landingWrapper">
+			<h1>Welcome</h1>
+			<p>Please click the button to continue...</p>
+			<a href="/ninjas" class="button">Continue</a>
+		</div><!-- end_of_landingWrapper-->
+	</body>
+</html>

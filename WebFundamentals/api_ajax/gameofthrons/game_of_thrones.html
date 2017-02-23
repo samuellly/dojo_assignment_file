@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="game_of_thrones.css" type="text/css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript">
+  "use strict";
+  $(document).ready(function() {
+    $("img").click(function() {
+      var house= $(this).attr("id");
+      console.log(house)
+      $.get("http://anapioficeandfire.com/api/houses/" + house + "", function(res) {
+            var houseInfo = "";
+            houseInfo += "<h2>Name: " + res.name + "</h2>";
+            houseInfo += "<h2>Region: " + res.region + "</h2>";
+            houseInfo += "<h2>Coat of Arms: " + res.coatOfArms + "</h2>";
+            houseInfo += "<h2>Words: " + res.words + "</h2>";
+            houseInfo += "<h2>Titles: " + res.titles + "</h2>";
+            $("#description").html(houseInfo);
+          }, "json");
+          return false;
+        });
+      });
+  </script>
+  <title>Document</title>
+</head>
+<body>
+  <form id="picture">
+    <header id="heading" class="box">
+        <h1>Game of thrones</h1>
+    </header>
+    <div class="background">
+
+      <div class="top">
+        <img id="16" src="C:\Users\dongyhun\Downloads\gameofthrones\baratheon.png" alt="logo" width="350px" height="200px">
+
+        <img id="229" src="C:\Users\dongyhun\Downloads\gameofthrones\lannister.jpg" alt="logo2" width="350px" height="200px">
+
+        <img id="362" src="C:\Users\dongyhun\Downloads\gameofthrones\stark.jpg" alt="logo3" width="350px" height="200px">
+      >
+        <img id="378" src="C:\Users\dongyhun\Downloads\gameofthrones\targaryen.jpg" alt="logo4" width="350px" height="200px">
+      </div>
+  </div>
+  <div id="description">
+  </div>
+</form>
+  
+</body>
+</html>

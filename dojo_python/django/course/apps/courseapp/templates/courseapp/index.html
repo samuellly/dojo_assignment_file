@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        {% load staticfiles %}
+        <link rel="stylesheet" type="text/css" href="{% static 'courseapp/css/styles.css' %}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <title>Courses</title>
+    </head>
+    <body>
+      <main>
+        <header>
+          <div id="wrapper">
+            <h2>Add a New Course</h2>
+            <form action="/processAdd" method="post">
+			       	{% csrf_token %}
+			      	<label for="name">Name:</label>
+				      <input type="text" name="name" id="name">
+				      <label for="description">Description:</label>
+				      <textarea name="description" rows="8" cols="40"></textarea>
+				      <input type="submit" name="submit" value="Submit">
+			      </form>
+        </header>
+        <section>
+            <h3>Courses</h3>
+            <table class="table">
+                <tr>
+                    <th>Course Name</th>
+                    <th>Description</th>
+                    <th>Date Added</th>
+                    <th>Action</th>
+                </tr>
+                {% for course in course %}
+                  <tr>
+                    <td>{{ course.name }}</td>
+                    <td>{{ course.description }}</td>
+                    <td>{{ course.created_at }}</td>
+                    <td><a href="/removecheck/{{ course.id }}">remove</a>, <a href="/comment/{{ course.id }}">add/view comment(s)</a></td>
+                  </tr>
+                {% endfor %}
+            </table>
+          </section>
+        </main>
+        <script type="text/javascript">
+          		var nameField = document.getElementById('name');
+          		nameField.focus();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,99 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: sans-serif;
+	color: #444444;
+}
+
+#index {
+	background: url('../images/road.jpg');
+}
+
+main {
+	background: url('../images/road.jpg')center no-repeat;
+	background-size: cover;
+}
+
+#dojo {
+	background: url('../images/road.jpg')no-repeat;
+}
+
+section {
+	width: 80%;
+	margin: 0 auto;
+	padding: 5rem 10rem;
+	background-color: rgba(231, 231, 231, 0.7);
+}
+
+#formWrap {
+	width: 60%;
+	margin: 0 150px 0 500px;
+	padding: 5rem 5rem;
+}
+
+#landingWrapper {
+	text-align: center;
+	width: 40%;
+	height: 20rem;
+	margin: 15% auto;
+	padding: 70px 0 100px;
+	background-color: rgba(231, 231, 231, 0.3);
+	border-radius: 10px;
+	color: #444444;
+}
+
+h1 {
+	margin: 0 auto 30px;
+	font-size: 4em;
+}
+
+h2 {
+	text-align: center;
+	margin: 0 auto 30px;
+	font-size: 2.5em;
+}
+
+p {
+	margin: 0 auto 20px;
+}
+
+a.button {
+	display: block;
+	width: 5rem;
+	height: 2rem;
+	background-color: #4e87a5;
+	border: none;
+	color: white;
+	border-radius: 5px;
+	text-decoration: none;
+	text-align: center;
+	margin: 0 auto;
+	padding: 7px;
+}
+
+a.button:hover {
+	box-shadow: 0px 0px 5px white;
+	cursor: pointer;
+}
+
+a.nbutton {
+	width: 6rem;
+}
+
+form {
+	margin: 0;
+}
+
+label {
+	display: block;
+	font-size: 1.2em;
+	margin: 10px 0;
+}
+
+label input {
+	height: 2em;
+	width: 20em;
+	vertical-align: top;
+	padding: 0 0 0 5px;
+}
