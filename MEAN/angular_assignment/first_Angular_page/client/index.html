@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>First angular page</title>
+  <script type="text/javascript" src="angular/angular.js"></script>
+  <script type="text/javascript">
+  var myApp = angular.module('myApp', []);
+
+myApp.controller('EmailsCtrl', ['$scope', function ($scope) {
+
+    $scope.emails = {};
+
+    $scope.emails.messages = [{
+        "from": "Steve Jobs",
+        "subject": "I think I'm holding my phone wrong :/",
+        "sent": "2013-10-01T08:05:59Z"
+    },{
+        "from": "Ellie Goulding",
+        "subject": "I've got Starry Eyes, lulz",
+        "sent": "2013-09-21T19:45:00Z"
+    },{
+        "from": "Michael Stipe",
+        "subject": "Everybody hurts, sometimes.",
+        "sent": "2013-09-12T11:38:30Z"
+    },{
+        "from": "Jeremy Clarkson",
+        "subject": "Think I've found the best car... In the world",
+        "sent": "2013-09-03T13:15:11Z"
+    }];
+
+}]);
+  </script>
+</head>
+<body>
+  <div ng-app="myApp">
+    <div class="inbox" ng-controller="EmailsCtrl">
+        My Inbox:
+        <ul>
+            <li ng-repeat="message in emails.messages">
+                <p>From: {{ message.from }}</p>
+                <p>Subject: {{ message.subject }}</p>
+                <p>{{ message.sent | date:'MMM d, y h:mm:ss a' }}</p>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="survey_app">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.js' /></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-route.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script type="text/javascript" src = 'assets/factories/beltFactory.js'></script>
+
+    <script type="text/javascript">
+        var survey_app = angular.module('survey_app', ['ngRoute', 'ngStorage']);
+        survey_app.config(function($routeProvider) {
+            $routeProvider
+                .when('/', {
+                    templateUrl: 'partials/user.html'
+                })
+                .when('/dashboard', {
+                    templateUrl: 'partials/dashboard.html',
+                    controller: 'dashboardController'
+                })
+                .when('/create', {
+                    templateUrl: 'partials/create.html'
+                })
+                .when('/poll/:index', {
+                    templateUrl: 'partials/showSurvey.html',
+                    controller: 'showSurveyController'
+                })
+
+        })
+
+// factory<--------------------------------------------------------------------->
+
+        survey_app.factory('userFactory', function($http) {
+            var factory = {};
+            var user = [];
+            factory.addUser = function(newUser, callback) {
+                $http.post('/users', newUser).success(function(res) {
+                    factory.user = res;
+                    callback(user);
+
+                })
+            }
+            return factory;
+        })
+        survey_app.factory('surveyFactory', function($http) {
+            var factory = {};
+            var surveys = [];
+            var currentSurveyID = "";
+            factory.addSurvey = function(newSurvey, callback) {
+                $http.post('/surveys', newSurvey).success(function(res) {
+                    factory.surveys = res;
+                    callback(res);
+                })
+
+            }
+
+            factory.getSurvey = function(callback) {
+                $http.get('/surveys').success(function(res) {
+                    factory.surveys = res;
+                    callback(factory.surveys);
+                })
+            }
+
+            factory.showSurvey = function(index, callback) {
+                var id = factory.surveys[index]._id;
+                factory.currentSurveyID = id;
+
+                $http.get('/surveys/' + id).success(function(res) {
+                    callback(res);
+
+                })
+            }
+            factory.addVote = function(votes) {
+                $http.put('/surveys/' + factory.currentSurveyID, votes).success(function(res) {
+                    factory.surveys = res;
+
+                })
+
+            }
+
+            factory.deleteSurvey = function(index, callback) {
+                var id = factory.surveys[index]._id;
+                $http.delete('/surveys/' + id).success(function(res) {
+                    factory.surveys = res;
+                    callback(res);
+                })
+            }
+            return factory;
+        })
+
+
+// apps<---------------------------------------------------------------------------------->
+        survey_app.controller('userController', function($rootScope, userFactory, $location, $scope, $sessionStorage) {
+            $scope.addUser = function() {
+                userFactory.addUser($scope.newUser, function(user) {
+                    $scope.$storage = $sessionStorage.$default({
+                        user: userFactory.user.name
+                    });
+                    $scope.newUser = {};
+                    $location.path('/dashboard');
+                })
+            }
+
+        })
+        survey_app.controller('dashboardController', function($scope, userFactory, $location, $sessionStorage, surveyFactory) {
+            $scope.surveys = surveyFactory.getSurvey(function(res) {
+                $scope.surveys = res;
+            })
+            $scope.logout = function() {
+                delete $sessionStorage.user
+                $location.path('/');
+
+            }
+
+            $scope.$storage = $sessionStorage;
+
+            $scope.deleteSurvey = function(index) {
+                surveyFactory.deleteSurvey(index, function(res) {
+                    $scope.surveys = res;
+                })
+            }
+        })
+
+        survey_app.controller('surveyController', function($scope, $sessionStorage, surveyFactory) {
+            $scope.errors = false;
+            $scope.errorMsg = "";
+            $scope.surveys = surveyFactory.getSurvey(function(surveys) {
+                $scope.surveys = surveys;
+            })
+            $scope.addSurvey = function() {
+
+                surveyFactory.addSurvey({
+                    survey: $scope.newSurvey,
+                    user: $sessionStorage.user
+                }, function(res) {
+                    if (res.errors !== undefined) {
+                        $scope.errors = true;
+                        $scope.errorMsg = res.errors;
+
+                    } else {
+                        $scope.errors = false;
+                        $location.path('/dashboard');
+                    }
+
+                $location.path('/dashboard')})
+                $scope.newSurvey = {};
+            }
+
+  
+        })
+
+        survey_app.controller('showSurveyController', function($scope, $sessionStorage, surveyFactory, $routeParams) {
+            $scope.votes = [];
+            $scope.surveyOptions = {
+                question: "",
+                options: []
+            };
+
+            $scope.survey = surveyFactory.showSurvey($routeParams.index, function(res) {
+                var survey = res[0];
+
+
+                $scope.survey = $scope.surveyOptions;
+                $scope.survey.question = survey.question;
+                $scope.survey._id = survey._id;
+                for (var i = 0; i < 4; i++) {
+                    if (survey.votes[i] == undefined) {
+                        $scope.survey.options.push({
+                            name: survey.options[i],
+                            vote: 0
+                        });
+                        $scope.votes.push(0);
+
+                    } else {
+                        $scope.survey.options.push({
+                            name: survey.options[i],
+                            vote: survey.votes[i]
+                        });
+                        $scope.votes.push(survey.votes[i]);
+                    }
+
+                }
+
+            })
+
+            $scope.addVote = function(index) {
+                $scope.votes[index] += 1;
+                surveyFactory.addVote($scope.votes);
+
+                $scope.survey.options[index].vote += 1;
+
+            }
+        })
+    </script>
+</head>
+
+<body>
+    <div>
+        <div ng-view=""></div>
+    </div>
+</body>
+
+</html>

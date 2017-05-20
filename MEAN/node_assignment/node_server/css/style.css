@@ -1,0 +1,17 @@
+body {
+	width: 500px;
+	margin: 0px auto;
+	border: 1px solid #ff0000;
+	font-family: Verdana, sans-serif;
+	text-align: center;
+}
+
+h1 {
+	color: #ff0000;
+	font-weight: bold;
+	background-color: #dddddd;
+}
+
+.header {
+	background-color: #cccccc;
+}

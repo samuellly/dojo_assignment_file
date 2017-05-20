@@ -10,41 +10,49 @@
 	<link rel="stylesheet" href="{% static 'loginapp/css/css_boilerplate.css' %}" media="screen">
 </head>
 <body>
-	<main class="fifty">
-		{% if messages %}
-			<div class="notif red">
-				{% for message in messages %}
-					<p>{{message}}</p>
-				{% endfor %}
-			</div><!-- end_of_notif-->
-		{% endif %}
-		<section class="hundo">
-			<h1>Registration</h1>
-			<form class="eighty" action="/process/register" method="post">
-				{% csrf_token %}
+
+   {% if messages %}
+     {% for message in messages %}
+       <li style="color:red"> {{message}} </li>
+     {% endfor %}
+   {% endif %}
+   
+  <h1>Registration</h1>
+    <form action="{% url 'loginreg:register' %}" method="post">
+      {% csrf_token %}
 				<label class="forty" for="first_name">First Name:</label>
-				<input class="fifty" type="text" name="first_name" id="first">
+				<input class="fifty" type="text" name="first_name" value="">
 				<label class="forty" for="last_name">Last Name:</label>
-				<input class="fifty" type="text" name="last_name" >
+				<input class="fifty" type="text" name="last_name" value="">
 				<label class="forty" for="email">Email Address:</label>
-				<input class="fifty" type="text" name="email" >
+				<input class="fifty" type="text" name="email"value="" >
 				<label class="forty" for="password">Password:</label>
-				<input class="fifty" type="password" name="password">
+				<input class="fifty" type="password" name="password" value="">
 				<label class="forty" for="confirm">Confirm Password:</label>
-				<input class="fifty" type="password" name="confirm">
+				<input class="fifty" type="password" name="confirm" value="">
 				<input class="btn btn-pop" type="submit" name="register" value="Register">
 			</form>
-		</section>
+
 		<section class="hundo">
 			<h1>Login</h1>
-			<form class="eighty" action="/process/login" method="post">
+			<form class="eighty" action="{% url 'loginreg:login' %}" method="post">
 				{% csrf_token %}
 				<label for="email">Email</label>
-				<input type="text" name="email" placeholder="bob@builder.com">
+				<input type="text" name="email" value="">
 				<label for="password">Password</label>
-				<input type="password" name="password">
+				<input type="password" name="password" value="">
 				<input class="btn btn-pop" type="submit" name="login" value="Login">
 			</form>
+      <ul>
+        {% for user in users%}
+          <li>
+          {{ user.id }},
+          {{ user.first_name }}
+          {{ user.last_name }},
+          {{ user.password }}
+          </li>
+        {% endfor %}
+        </ul>
 		</section>
 	</main>
 	<script type="text/javascript">

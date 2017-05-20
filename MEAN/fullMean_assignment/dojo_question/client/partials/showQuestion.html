@@ -1,0 +1,27 @@
+<html>
+<head>
+	<title></title>
+</head>
+<style type="text/css">
+	li {
+		list-style-type: none;
+	}
+	.name {color: blue;}
+</style>
+<body>
+	<div ng-controller = "questionController">
+	<div class = "container">
+		<a href="#/">Log Out</a> 
+   		<a href="#!/success">Home</a>
+   		<a href="#!/answer/{{question._id}}">Answer Question</a>
+		<h4>{{question.question}}</h4>
+		<h4>{{question.description}}</h4>
+      <ul ng-repeat="answer in question.answers track by $index">
+          <li class = "name">{{answer._user.firstName}} {{answer._user.lastName}}</a> {{answer.created_at | date:'short'}} <button ng-click = "like(answer._id)" class = "btn btn-success">Like! : {{answer.numberLikes}} likes</button></li>
+          <li>{{ answer.answer }}</li>
+          <li>{{answer.description}}</li>
+       </ul>
+      </div>
+     </div>
+</body>
+</html>

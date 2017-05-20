@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en" data-ng-app="songApp">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Soundcloud Songs App</title>
+  <link rel="stylesheet" href="lib/semantic-ui/css/semantic.css">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body>
+  <div class="" data-ng-controller="mainController">
+    <div id="app" class="ui stacked segment">
+      <div class="row">
+        <div class="column">
+          <form data-ng-submit="search()">
+            <div class="ui action fluid input">
+              <input type="text" placeholder="Search for song" data-ng-model="query" required>
+              <div class="ui icon button purple" data-ng-click="search()">
+                <i class="search icon"></i>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="ui horizontal icon divider">
+        <i class="circular inverted purple music icon"></i>
+      </div>
+      <div class="row" data-ng-show="tracks">
+        <div class="column">
+          <div id="appMaxHeight" class="ui selection devided list">
+            <div class="item" data-ng-mouseenter="show=true" data-ng-mouseleave="show=false" data-ng-repeat="track in tracks">
+              <div class="right floated ui icon" data-ng-show="show" data-ng-click="play(track.id)">
+                <i class="play purple circular icon"></i>
+              </div>
+<!--
+              <div class="right floated ui icon " data-ng-show="clicked" data-ng-click="pause()">
+                <i class="pause circular icon"></i>
+              </div>
+-->
+              <img class="ui avatar image" data-ng-src="{{track.artwork_url}}">
+              <div class="content">
+                <div class="header">{{track.title}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="lib/angularjs/angular.js"></script>
+  <script type="text/javascript" src="//connect.soundcloud.com/sdk.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" src="js/services/appService.js"></script>
+  <script type="text/javascript" src="js/controllers/appController.js"></script>
+</body>
+
+</html>

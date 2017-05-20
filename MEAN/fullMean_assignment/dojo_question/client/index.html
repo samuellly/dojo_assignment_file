@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+    <title></title>
+    <script src="angular/angular.js"></script>
+    <script src="angular-route/angular-route.js"></script>
+    <script src="angular-cookies/angular-cookies.js"></script>
+    <script src="ng-file-upload/ng-file-upload.js"></script>
+    <script type="text/javascript">
+        var myApp = angular.module('myApp', ['ngRoute', 'ngCookies', 'ngFileUpload']);
+    </script>
+    <script type="text/javascript" src = 'assets/factories/beltFactory.js'></script>
+    <script type="text/javascript" src = 'assets/controllers/logAndRegController.js'></script>
+    <script type="text/javascript" src = 'assets/controllers/dashBoardController.js'></script>
+    <script type="text/javascript" src = 'assets/controllers/questionController.js'></script>
+    <script type="text/javascript" src = 'assets/controllers/answerController.js'></script>
+<script>
+    myApp.config(function ($routeProvider) {
+      $routeProvider
+        .when('/',{
+            templateUrl: 'partials/logAndReg.html',
+        })
+        .when('/success',{
+            templateUrl: 'partials/dashboard.html',
+        })
+        .when('/question',{
+            templateUrl: 'partials/newQuestion.html',
+        })
+        .when('/question/:id',{
+            templateUrl: 'partials/showQuestion.html',
+        })
+        .when('/answer/:id',{
+            templateUrl: 'partials/answer.html',
+        })
+        .otherwise({
+          redirectTo: '/'
+        });
+    });
+
+    </script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  </head>
+  <body>
+    <div ng-app='myApp'>
+        <div ng-view=""></div>
+    </div>
+</body>
+</html>

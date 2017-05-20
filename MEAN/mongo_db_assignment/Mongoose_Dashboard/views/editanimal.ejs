@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mongoose Single Animal</title>
+    <link rel="stylesheet" type="text/css" href="../../css/styles.css"/>
+</head>
+<body>
+
+<div id="wrapper">
+
+    <h1>Update or Delete the <em><%= animal.name %></em> Document</h1>
+
+    <form action="/mongooses/<%= animal._id %>" method="post">
+        <p><label for="name"><strong>Name:</strong></label>
+        <input type="text" name="name" value="<%= animal.name %>"/></p>
+        <p><input type="submit" value="Update"/></p>
+    </form>
+
+    <p><a href="/">Go Home</a></p>
+
+</div>
+
+</body>
+</html>

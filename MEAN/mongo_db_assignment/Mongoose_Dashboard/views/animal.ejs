@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mongoose Single Animal</title>
+    <link rel="stylesheet" type="text/css" href="../../css/styles.css"/>
+</head>
+<body>
+
+<div id="wrapper">
+
+    <h1>Show the <em><%= animal.name %></em> Document</h1>
+
+    <p><strong>Name:</strong> <%= animal.name %></p>
+
+    <p><a href="/mongooses/<%= animal._id %>/edit">Update animal name</a><br /><br />
+        <a href="/mongooses/<%= animal._id %>/destroy">Delete animal</a></p>
+
+    <p>&nbsp;</p>
+    <p><a href="/">Go Home</a></p>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app = 'myApp'>
+<head>
+	<title>Friends</title>
+	<link rel="stylesheet" type="text/css" href="./static/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="./static/style.css">
+
+
+</head>
+<body>
+
+	<div ng-controller = 'friendController'>
+	<table class = 'table'>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Show</th>
+				<th>Update</th>
+				<th>Delete</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat = 'friend in friends'>
+				<td>{{friend.fname}} {{friend.lname}}</td>
+				<td><a href="#/show">Show</a></td>
+				<td><a href="#/edit">Edit</a></td>
+				<td><button class ='btn btn-primary' ng-click = 'delete(friend._id)'>Delete User</button></td>
+			</tr>
+		</tbody>
+	</table>
+	<a href="#/new"><button class='btn btn-primary col-xs-offset-11'>New</button></a>
+
+	</div>
+
+</body>
+</html>

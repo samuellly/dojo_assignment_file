@@ -1,0 +1,45 @@
+<div class="col-md-3 col-md-offset-2">
+    <ul class="list-group" ng-if="reg_errors">
+        <li class="list-group-item list-group-item-danger" ng-repeat="error in reg_errors">{{error}}</li>
+    </ul>
+    <h1 class="text-center">Registration</h1>
+    <form action="" class="form-horizontal" ng-submit='registerUser()'>
+        <div class="form-group">
+            <label for="">First Name</label>
+            <input type="text" ng-model="user.first_name" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="">Last Name</label>
+            <input type="text" ng-model="user.last_name" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="">Email</label><input type="text" ng-model="user.email" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="">Password</label><input type="password" ng-model="user.pword1" class="form-control">
+        </div>
+        <div class="form-group">
+            <div class="alert alert-danger" ng-show="user.pword1 != user.pword2">Passwords must match!</div>
+            <label for="">Confirm Password</label><input type="password" ng-model="user.pword2" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="">Birthday</label><input type="date" ng-model="user.birthday" class="form-control">
+        </div>
+        <button class="btn btn-primary" type='submit'>Register</button>
+    </form>
+</div>
+<div class="col-md-3 col-md-offset-2">
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-danger" ng-if="login_errors">{{login_errors}}</li>
+    </ul>
+    <h1 class="text-center">Login</h1>
+    <form action="" class="form-horizontal" ng-submit='loginUser()'>
+        <div class="form-group">
+            <label for="">Email</label><input type="text" ng-model="user.email_l" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="">Password</label><input type="password" ng-model="user.password_l" class="form-control">
+        </div>
+        <button class="btn btn-primary" type='submit'>Login</button>
+    </form>
+</div>

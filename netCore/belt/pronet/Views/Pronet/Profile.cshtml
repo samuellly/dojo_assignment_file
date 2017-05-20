@@ -1,0 +1,46 @@
+<a href="/users">All Users | </a>
+<a href="/logout">Log Out</a>
+<h3>Hello, @ViewBag.curUser.Name!</h3>
+
+<hr>
+<h3>Here is your profile description:</h3> 
+<p>@ViewBag.curUser.Description</p>
+
+<hr>
+<h3>Your Professional Network</h3>
+<table class="ui celled table">
+    <thead>
+        <tr>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Connection in ViewBag.curUser.UsersConnected) {
+            <tr>
+                <td><a href="users/@Connection.UserConnectedTo.UserID">@Connection.UserConnectedTo.Name</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<hr>
+<h3>Invitations</h3>
+<p>The following people asked you to be in their network:</p>
+
+<table class="ui celled table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Inviter in ViewBag.curUser.UsersInviting) {
+            <tr>
+                <td><a href="users/@Inviter.Inviter.UserID">@Inviter.Inviter.Name</a></td>
+                <td><a href="connect/@Inviter.Inviter.UserID">Connect</a> | <a href="ignore/@Inviter.Inviter.UserID">Ignore</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

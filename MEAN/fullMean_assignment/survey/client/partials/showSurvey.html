@@ -1,0 +1,37 @@
+<div ng-controller="surveyController">
+  <nav class="nav navbar navbar-default">
+    <div class="container">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="#/dashboard">Go to Polls</a>
+        </li>
+
+
+
+      </ul>
+
+
+    </div>
+  </nav>
+
+
+  <div class="container">
+    <h3>{{survey.question}}</h3>
+    <p>Click the Vote button to choose one.</p><br>
+    <table class="table table-bordered">
+      <tr>
+        <th>Option</th>
+        <th>Current Count of Votes</th>
+        <th>Action</th>
+      </tr>
+      <tr ng-repeat="option in survey.options" >
+        <td>{{option.name}}</td>
+        <td>{{option.vote}}</td>
+        <td>
+        <button class="btn btn-info" ng-click="addVote($index)">
+          <span class="glyphicon glyphicon-thumbs-up"></span>
+        Vote</button></td>
+      </tr>
+    </table>
+
+  </div>

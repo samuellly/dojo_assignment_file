@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Express: Users</title>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+</head>
+<body>
+	<div id="wrapper">
+		<h2>Submitted Information</h2>
+		<table>
+			<tr>
+				<td>Name:</td>
+				<td><%= result.name %></td>
+			</tr>
+			<tr>
+				<td>Dojo Location:</td>
+				<td><%= result.location %></td>
+			</tr>
+			<tr>
+				<td>Favorite Language:</td>
+				<td><%= result.language %></td>
+			</tr>
+			<tr>
+				<td>Comment:</td>
+				<td><%= result.comment %></td>
+			</tr>
+		</table>
+
+		<form action="/" method="post">
+			<input type="submit" value="Go back">
+		</form>
+	</div>
+</body>
+</html>

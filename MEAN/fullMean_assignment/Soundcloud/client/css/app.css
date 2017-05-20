@@ -1,0 +1,10 @@
+#app{
+  width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#appMaxHeight{
+  max-height: 500px;
+  overflow: scroll
+}

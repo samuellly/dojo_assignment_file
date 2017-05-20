@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>First angular page</title>
+  <script type="text/javascript" src="angular/angular.js"></script>
+  <script type="text/javascript">
+  var myApp = angular.module('myApp', []);
+
+myApp.controller('MainCtrl', ['$scope', function ($scope) {
+
+    $scope.myModel = '';
+
+}]);
+  </script>
+</head>
+<body>
+  <div ng-app="myApp">
+    <div ng-controller="MainCtrl">
+        <input type="text" ng-model="myModel" placeholder="Start typing..." />
+        <p>My model data: {{ myModel }}</p>
+    </div>
+</div>
+</body>
+</html>

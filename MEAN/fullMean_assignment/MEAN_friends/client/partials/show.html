@@ -1,0 +1,10 @@
+<h1 class="text-center">Friend Page</h1>
+<div class="col-md-2 col-md-offset-5">
+    <div class="well">
+        <h3>Name</h3>
+        <p class="lead">{{ friend.first_name | capitalize }} {{ friend.last_name | capitalize }}</p>
+        <h3>Birthday</h3>
+        <p class="lead">{{ friend.birthday | date: 'MM/dd/yyyy'}}</p>
+    </div>
+    <a href="/"><p class="text-center">Back to Main Page</p></a>
+</div>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Hello!</title>
+    </head>
+    <body>
+    @{
+        var StringList = new List<string>{
+                                "one",
+                                "two",
+                                "three",
+                                "four"
+                            };
+        
+        foreach(var word in StringList)
+        {
+            // We can render HTML from within C# code!
+            <p>@word</p>
+        }
+    }
+</body>
+</html>

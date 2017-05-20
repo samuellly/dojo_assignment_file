@@ -1,0 +1,144 @@
+<html ng-app='app'>
+
+<head>
+    <meta charset="utf-8">
+    <title>Controlling Users</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src='/angular/angular.js'></script>
+    <script>
+    var app = angular.module('app', []);
+      app.factory('productFactory', function() {
+          var factory = {};
+          var products = [];
+          factory.index = function(callback) {
+              callback(products);
+          };
+          factory.delete = function(id, callback) {
+              products.splice(id, 1);
+              callback(products);
+          };
+          factory.create = function(product, callback) {
+              products.push(product);
+              callback(products);
+          };
+          factory.update = function(id, callback) {
+              if (products[id].quantity - 1 > 0) {
+                  products[id].quantity -= 1;
+              } else {
+                  products[id].quantity = 0;
+              }
+              callback(products);
+          }
+          return factory;
+      });
+      app.controller('productController', ['$scope', 'productFactory', function($scope, productFactory) {
+          function setProducts(data) {
+              $scope.products = data;
+              $scope.product = {};
+          }
+          $scope.products = [];
+          $scope.product = {};
+          $scope.index = function() {
+              productFactory.index(setProducts);
+          };
+          $scope.create = function() {
+              productFactory.create($scope.product, setProducts);
+          };
+          $scope.delete = function(id) {
+              productFactory.delete(id, setProducts);
+          };
+
+      }]);
+    </script>
+    <style>
+      .navbar {
+        background:#31B0D5;
+
+      }
+    </style>
+</head>
+
+<body>
+    <div class="navbar navbar-default">
+        <div class="container">
+        </div>
+    </div>
+    <!-- NAVBAR CODE END -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h2>Product create and delete </h2>
+                <h6>Crafted by Samuel Hur</a> </h6>
+                <br />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="container" ng-controller="productController">
+                <!--  START -->
+              <div class="sm-wrapper">
+                    <div class="panel panel-default">
+
+                        <div class="panel-body">
+                          <div class="navbar" >
+                          </div>
+                          <form class="form-horizontal" ng-submit="create()">
+                            <hr />
+                            <div>
+                              <label>Item Name</label>
+                              <input type="text" ng-model="product.name" name=" name" class="form-control" />
+                            </div>
+                            <hr />
+                            <div >
+                              <label>Price</label>
+                              <input type="text" ng-model="product.price" name="price" class="form-control" />
+                            </div>
+                            <hr />
+
+                            <button type="submit" class="btn btn-success" ><i class="glyphicon glyphicon-off"></i>&nbsp;Create Items</button>
+
+                          </form>
+                            <div class="clearfix"></div>
+                            <hr>
+                            <ul class="media-list">
+
+                                <li class="media">
+
+                                    <div class="media-body">
+                                      <h3 class="text-center" ng-if="products.length == 0"><em>No avaliable products yet...</em></h3>
+                                      <div ng-if="products.length > 0">
+                                       <table class="table table-striped">
+                                          <thead>
+                                            <th>Name</th>
+                                            <th>Price</th>
+                                            <th>Action</th>
+                                          </thead>
+                                          <tbody>
+                                              <tr ng-repeat="product in products">
+                                                <td>{{ product.name }}</td>
+                                                <td>{{ product.price | currency:"$" }}</td>
+                                                <td>
+                                                  <button type="button" class="btn btn-danger" ng-click="delete($index)"> <i class="glyphicon glyphicon-eye-open"></i> Remove Items</button>
+                                                </td>                                              </tr>
+                                          </tbody>
+                                      </table>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                 <!--  END -->
+            </div>
+        </div>
+    </div>
+    <!-- REQUIRED SCRIPTS FILES -->
+    <!-- CORE JQUERY FILE -->
+    <script src="assets/js/jquery-1.11.1.js"></script>
+    <!-- REQUIRED BOOTSTRAP SCRIPTS -->
+    <script src="assets/js/bootstrap.js"></script>
+
+</body>
+</html>

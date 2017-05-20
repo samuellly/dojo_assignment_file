@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" ng-app = 'app'>
+<head>
+	<meta charset="utf-8">
+	<title>Partials and Custom Users</title>
+	<script src="angular/angular.js" charset="utf-8"></script>
+	<script src="angular-route/angular-route.js" charset="utf-8"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="foundation-sites/dist/css/foundation.css">
+	<script src="foundation-sites/dist/js/foundation.js"></script>
+	<script src="jquery/dist/jquery.js"></script>
+	<script>
+	//Partial Logic:
+		var app = angular.module('app', ['ngRoute']);
+		app.config(function ($routeProvider) {
+		$routeProvider
+			.when('/', {
+				templateUrl: 'partials/customizeUsers.html'
+			})
+
+			.when('/userList', {
+				templateUrl: 'partials/userList.html'
+			})
+
+			.otherwise({
+				redirectTo: '/'
+			});
+		});
+
+	//Factories Below:
+	app.factory("userFactory",[function() {
+		var factory = {};
+		var users = [];
+
+		factory.index = function(callback) {
+			callback(users);
+		}
+
+		factory.create = function(user) {
+			users.push(user);
+		}
+
+		factory.delete = function($index) {
+			users.splice($index, 1);
+		}
+		return factory;
+	}])
+
+	//Controllers Below:
+	app.controller("CustomizeUsersController", ['$scope', 'userFactory', function($scope, userFactory) {
+		function setUsers(data){
+			$scope.users = data;
+			$scope.user = {};
+		}
+
+		$scope.users = [];
+		userFactory.index(setUsers);
+
+		$scope.create = function(){
+			userFactory.create($scope.user);
+			$scope.user = {};
+		}
+
+		$scope.delete = function($index){
+			userFactory.delete($index);
+		}
+	}])
+
+	app.controller("UserListsController", ['$scope', 'userFactory', function($scope, userFactory) {
+		function setUsers(data){
+			$scope.users = data;
+		}
+		$scope.users = [];
+
+		userFactory.index(setUsers);
+	}])
+
+
+
+
+	</script>
+
+</head>
+<body>
+	<a href="#!/">Customize Users</a> | <a href="#!/userList">User List</a>
+	<div ng-view>
+		<!-- Partials will load -->
+	</div>
+</body>
+</html>

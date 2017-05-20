@@ -1,0 +1,80 @@
+<div ng-controller="surveyController">
+  <nav class="nav navbar navbar-default">
+    <div class="container">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="#/dashboard">Cancel</a>
+        </li>
+      </ul>
+
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <div class="alert alert-danger" role="alert" ng-show="errors">
+      <strong>Error!</strong> {{errorMsg}}
+    </div>
+
+
+    <form class="form-horizontal col-sm-10">
+      <fieldset>
+        <legend>
+          Put the question and options here:
+        </legend>
+        <div class="form-group">
+
+          <label class="control-label col-sm-2">Question: </label>
+
+          <div class="col-sm-10">
+            <input class="form-control" type="text" ng-model="newSurvey.question"><br>
+          </div>
+        </div>
+        <div class="form-group">
+
+          <label class="control-label col-sm-2">Option 1: </label>
+
+          <div class="col-sm-5">
+            <input  class="form-control" type="text" ng-model="newSurvey.optionOne"><br>
+          </div>
+        </div>
+        <div class="form-group">
+
+          <label class="control-label col-sm-2">Option 2: </label>
+          <div class="col-sm-5">
+            <input  class="form-control" type="text" ng-model="newSurvey.optionTwo"><br>
+          </div>
+        </div>
+        <div class="form-group">
+
+          <label class="control-label col-sm-2">Option 3: </label>
+
+          <div class="col-sm-5">
+            <input  class="form-control" type="text" ng-model="newSurvey.optionThree"><br>
+          </div>
+        </div>
+        <div class="form-group">
+
+          <label class="control-label col-sm-2">Option 4: </label>
+
+          <div class="col-sm-5">
+            <input  class="form-control" type="text" ng-model="newSurvey.optionFour"><br>
+          </div>
+        </div>
+        <input class="btn btn-default pull-right" type="submit" value="Create Poll" ng-click="addSurvey()" ng-disabled="!newSurvey.question" href="#/dashboard">
+
+
+      </fieldset>
+
+
+
+
+
+    </form>
+  </div>
+
+
+
+
+
+</div>

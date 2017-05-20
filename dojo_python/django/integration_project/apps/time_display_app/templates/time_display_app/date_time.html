@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Time Display</title>
+	<style media="screen">
+		p {
+			width: 200px;
+			margin: 50px auto 20px;
+			padding: 10px;
+			text-align: center;
+			border: 1px solid gray;
+			box-shadow: 1px 1px 5px gray;
+		}
+		div {
+			width: 30%;
+			margin: 0 auto;
+			padding: 10px;
+			text-align: center;
+			border: 1px solid gray;
+			box-shadow: 1px 1px 5px gray;
+		}
+	</style>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+</head>
+<body>
+	<a class-'btn btn-pop right' href="{% url 'logreg:success' %}">Go Back</a>
+	<p> Current date & time </p>
+	<div>
+	{{current_time}}
+	</div>
+
+</body>
+</html>

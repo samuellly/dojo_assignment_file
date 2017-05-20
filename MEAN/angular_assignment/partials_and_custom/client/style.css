@@ -1,0 +1,25 @@
+html {
+	margin: 20px 40px;
+}
+
+/*table {
+	text-align: center;
+}*/
+table th, table td {
+	text-align: center !important;
+	top: 50%;
+}
+
+table thead {
+	border: 1px solid black;
+}
+
+
+table tbody:nth-child(even) {
+	background-color: #efefef;
+}
+
+.button {
+	vertical-align: middle !important;
+}
+

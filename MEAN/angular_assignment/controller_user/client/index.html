@@ -1,0 +1,131 @@
+<html ng-app='app'>
+
+<head>
+    <meta charset="utf-8">
+    <title>Controlling Users</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src='/angular/angular.js'></script>
+    <script>
+    var app = angular.module('app', []);
+      app.controller('userController', ['$scope', function($scope) {
+        $scope.users = [];
+        $scope.sortBy = 'date_added';
+        $scope.sortReverse = false;
+        $scope.addUser = function(){
+            $scope.user.date_added = new Date();
+            $scope.users.push($scope.user);
+            $scope.user = {};
+        };
+        $scope.removeUser = function(num) {
+            $scope.users.splice(num, 1);
+            console.log(num);
+        };
+    }]);
+    </script>
+    <style>
+      .navbar {
+        background:#31B0D5;
+        
+      }
+    </style>
+</head>
+
+<body>
+    <div class="navbar navbar-default">
+        <div class="container">
+        </div>
+    </div>
+    <!-- NAVBAR CODE END -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h2>Send user Message </h2>
+                <h6>Crafted by Samuel Hur</a> </h6>
+                <br />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="container" ng-controller='userController'>
+                <!--  START -->
+              <div class="sm-wrapper">
+                    <div class="panel panel-default">
+
+                        <div class="panel-body">
+                          <div class="navbar" >
+                          </div>
+                    <form class="form-horizontal" ng-submit='addUser()'>
+                            <hr />
+                           <label>First Name:</label>
+                            <input type="text" ng-model="user.first_name" class="form-control">
+                            <hr />
+                              <label>Last Name:</label>
+                              <input type="text" ng-model="user.last_name" class="form-control" rows="3">
+                            <hr />
+                            <label>Favorite Language:</label>
+                            <input type="text" ng-model="user.language" class="form-control">
+                            <hr />
+
+                            <button type="submit" class="btn btn-success" ><i class="glyphicon glyphicon-off"></i>&nbsp;Create User</button>
+
+                    </form>
+                            <div class="clearfix"></div>
+                            <hr>
+                            <ul class="media-list">
+
+                                <li class="media">
+
+                                    <div class="media-body">
+                                      <h3 class="text-center" ng-if="users.length == 0"><em>No users yet...</em></h3>
+                                      <div ng-if="users.length > 0">
+                                       <table class="table table-striped">
+                                          <thead>
+                                              <th ng-click="sortBy = 'first_name'; sortReverse = !sortReverse">First Name</th>
+                                              <th ng-click="sortBy = 'last_name'; sortReverse = !sortReverse;">Last Name</th>
+                                              <th ng-click="sortBy = 'language'; sortReverse = !sortReverse">Favorite Language</th>
+                                              <th ng-click="sortBy = 'date_added'; sortReverse = !sortReverse">Date Added</th>
+                                              <th>Action</th>
+                                          </thead>
+                                          <tbody>
+                                              <tr>
+                                                  <td>
+                                                      <input type='text' class='form-control' ng-model='f_fn'>
+                                                  </td>
+                                                  <td>
+                                                      <input type='text' class='form-control' ng-model='f_ln'>
+                                                  </td>
+                                                  <td>
+                                                      <input type='text' class='form-control' ng-model='f_fl'>
+                                                  </td>
+                                                  <td></td>
+                                                  <td></td>
+                                              </tr>
+                                              <tr ng-repeat='user in users | filter:{first_name: f_fn, last_name: f_ln, language: f_fl, date_added: f_date} | orderBy:sortBy:sortReverse'>
+                                                  <td>{{ user.first_name }}</td>
+                                                  <td>{{ user.last_name }}</td>
+                                                  <td>{{ user.language }}</td>
+                                                  <td>{{ user.date_added | date:'medium' }}</td>
+                                                  <td><button type="button" class="btn btn-danger" ng-click='removeUser($index)'><i class="glyphicon glyphicon-eye-open"></i> &nbsp;Remove User</button></td>
+                                              </tr>
+                                          </tbody>
+                                      </table>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                 <!--  END -->
+            </div>
+        </div>
+    </div>
+    <!-- REQUIRED SCRIPTS FILES -->
+    <!-- CORE JQUERY FILE -->
+    <script src="assets/js/jquery-1.11.1.js"></script>
+    <!-- REQUIRED BOOTSTRAP SCRIPTS -->
+    <script src="assets/js/bootstrap.js"></script>
+
+</body>
+</html>

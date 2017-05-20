@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{request.session.first_name}}</title>
+</head>
+<body>
+  <h1> Welcome Back {{request.session.first_name}} !! </h1>
+  <form action="{% url 'disappearing_ninja:index' %} ">
+    <input type='submit' value="Go to Disappearing Ninja Now!" />
+  </form>
+  <form action="{% url 'timedisplay:index' %} ">
+      <input type='submit' value="lets check the time Now!" />
+  </form>
+  <form action="{% url 'courses:index' %} ">
+      <input type='submit' value="lets add courses Now!" />
+  </form>
+  <a href="/logout" class="btn btn-pop">Log Out</a>
+
+</body>
+</html>

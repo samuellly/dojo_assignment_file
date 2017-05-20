@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Coding Dojo C#/ASP.NET Core MVC assignment Dojo Dachi">
+    <title>@ViewData["Title"] - DojoDachi</title>
+
+    <link rel="stylesheet" href=""
+            asp-fallback-href="function link() { [native code] }"
+            asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+
+    <link rel="stylesheet" href="~/css/css_boilerplate.css" />
+</head>
+<body>
+    <div class="sixty" id="pWrapper">
+        <p>Fullness: @ViewBag.Fullness</p>
+        <p>Happiness: @ViewBag.Happiness</p>
+        <p>Meals: @ViewBag.Meals</p>
+        <p>Energy: @ViewBag.Energy</p>
+    </div><!-- end_of_pWrapper-->
+    <main class="sixty center">
+        @RenderBody()
+    </main>
+    @if (ViewBag.Alive)
+    {
+        <div class="sixty" id="aWrapper">
+            <a class="btn btn-pop" href="Feed">Feed</a>
+            <a class="btn btn-pop" href="Play">Play</a>
+            <a class="btn btn-pop" href="Work">Work</a>
+            <a class="btn btn-pop" href="Sleep">Sleep</a>
+        </div><!-- end_of_aWrapper-->
+    }
+    else
+    {
+        <div class="sixty" id="aWrapper">
+            <a class="btn btn-imp" href="Reset">Restart?</a>
+        </div><!-- end_of_aWrapper-->
+    }
+
+
+        <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

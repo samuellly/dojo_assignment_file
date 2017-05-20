@@ -1,0 +1,31 @@
+<div class="section">
+    <div ng-show="loggedIn">
+        <div class="row">
+            id: {{user._id}}
+        </div>
+
+        <div class="row">
+            first name: {{user.firstName}}
+        </div>
+
+        <div class="row">
+            last name: {{user.lastName}}
+        </div>
+
+        <div class="row">
+            email: {{user.email}}
+        </div>
+
+        <div class="row">
+            created at: {{user.createdAt}}
+        </div>
+
+        <div class="row">
+            updated at: {{user.updatedAt}}
+        </div>
+    </div>
+
+    <div ng-hide="loggedIn">
+        Hello! Please log in or register.
+    </div>
+</div>

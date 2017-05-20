@@ -1,0 +1,110 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: sans-serif;
+}
+h2{
+	text-align: center;
+}
+main {
+	width: 80%;
+	margin: 80px auto;
+	padding: 20px;
+	border: 1px solid gray;
+	box-shadow: 1px 1px 5px gray;
+}
+
+header {
+	width: 50%;
+	margin: 0 auto;
+}
+
+label {
+	display: inline-block;
+	vertical-align: top;
+	width: 35%;
+	margin: 5px 0 0 10px;
+}
+
+input, textarea {
+	width: 60%;
+}
+
+form input:last-child {
+	display: block;
+	width: 5.5em;
+	margin: 10px auto 0;
+}
+
+form input:last-child:hover {
+	cursor: pointer;
+}
+
+table {
+	width: 95%;
+	margin: 10px auto;
+}
+
+thead {
+	background-color: gray;
+}
+
+th {
+	color: black;
+	font-size: 1em;
+	padding: 5px;
+	text-align: center;
+}
+
+td {
+	padding: 5px;
+	text-align: center;
+	border: 1px solid black;
+	font-size: .8em;
+}
+
+#removewrapper, #commentwrapper {
+	width: 90%;
+	margin: 15px auto;
+}
+
+span {
+	display: inline-block;
+	width: 19%;
+	margin: 5px 0;
+}
+
+p {
+	display: inline-block;
+	width: 78%;
+	margin: 5px 0;
+}
+
+.btn {
+	display: inline-block;
+	margin: 10px 20px;
+	padding: 4px;
+	text-align: center;
+	text-decoration: none;
+	vertical-align: top;
+	height: 1.7em;
+	border: 1px solid black;
+	border-radius: 5px;
+}
+
+.btn-dflt {
+	color: black;
+	width: 3em;
+	background-color: lightgray;
+}
+
+#back {
+	width: 5.5em;
+}
+
+#yes {
+	color: white;
+	width: 17em;
+	background-color: red;
+}

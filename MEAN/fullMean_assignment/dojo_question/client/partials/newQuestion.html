@@ -1,0 +1,24 @@
+<style type="text/css">
+  p {
+    margin: 0px;
+    padding: 0px;
+    display: inline-block;
+    color: red;
+  }
+  .nav li{
+    display: inline-block;
+  }
+</style>
+<div ng-controller='questionController'>
+      <a href="#/">Log Out</a> 
+      <a href="#!/success">Home</a>
+    <h1>Welcome</h1>
+      <h3>Add a new Question</h3>
+        <p ng-hide ="questionError">{{QE}}</p>
+      <form ng-submit = "addQuestion();">
+        Question : <input type = "text" ng-model = 'newquestion.question' ng-minlength = '1' required>
+        Description: <textarea ng-model = "newquestion.description"></textarea>
+        <input type = "submit" value = "Submit">
+      </form>
+      <a href="#!/success">Cancel</a>
+</div>

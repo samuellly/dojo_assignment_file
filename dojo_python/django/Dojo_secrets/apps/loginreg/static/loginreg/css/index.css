@@ -1,0 +1,14 @@
+body{
+  text-align: center;
+  font-family: sans-serif;
+}
+#left_form, #right_form{
+  vertical-align: top;
+  display: inline-block;
+  border: 1px solid black;
+  text-align: right;
+  padding: 4px;
+}
+h3{
+  color: red;
+}

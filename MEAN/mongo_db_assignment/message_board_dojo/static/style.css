@@ -1,0 +1,28 @@
+* {
+
+}
+
+input {
+	display: block;
+}
+
+#mess-area{
+	outline: 2px solid green;
+	margin-left: 15px;
+	background-color: transparent;
+	background-color: rgb(133, 224, 133);
+}
+
+#comm-area{
+	outline: 2px solid black;
+	margin-left: 25px;
+	background-color: transparent;
+	background-color: rgb(153, 230, 255);
+}
+#comm-form{
+	margin-left: 15px;
+}
+
+.commies {
+	text-decoration: black;
+}

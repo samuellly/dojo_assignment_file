@@ -1,0 +1,26 @@
+<div id="navbar">
+	<a href="#/create">Create a New Poll</a> | <a href="" ng-click="logout()">Logout</a>
+</div>
+
+<h1 class="fw">Current Polls:</h1>
+
+<form id="dashboardFilter" class="fw">
+	<input type="text" ng-model="filterSurveys" placeholder="Search">
+</form>
+
+<div class="fw">
+	<table id="dashboardTable" >
+		<tr>
+			<th>Name</th>
+			<th>Survey Question</th>
+			<th>Date Posted</th>
+			<th>Action</th>
+		</tr>
+		<tr ng-repeat="survey in surveys | filter:filterSurveys">
+			<td class="cd1">{{ survey.user.name }}</td>
+			<td class="cd2"><a href="#/poll/{{ survey._id }}">{{ survey.question }}</a></td>
+			<td class="cd3">{{ survey.created_at | date: shortDate  }}</td>
+			<td class="cd4"><a href="" ng-if="survey.user._id == current_user._id" ng-click="delete(survey._id)" class="btn">Delete</a></td>
+		</tr>
+	</table>
+</div>

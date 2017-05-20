@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Express: Form Result</title>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+</head>
+<body>
+	<div id="wrapper">
+		<h2>Form input</h2>
+		<form action="/result" method="post">
+			<label for="name">Your name:</label>
+			<input type="text" id="name" placeholder="your name" name="name">
+
+			<label for="location">Dojo location:</label>
+			<select id="location" name="location">
+				<option >Select</option>
+				<option>Silicon Valley</option>
+				<option>Seattle</option>
+				<option>Los Angeles</option>
+				<option>Dallas</option>
+				<option>Washington DC</option>
+				<option>Chicago</option>
+			</select>
+
+			<label for="language">Favorite language</label>
+			<select id="language" name="language">
+				<option >Select</option>
+				<option>PHP</option>
+				<option>JavaScript</option>
+				<option>Ruby on Rails</option>
+				<option>Python</option>
+				<option>iOS</option>
+			</select>
+
+			<label for="comment">Comment (optional)</label>
+			<textarea id="comment" placeholder="enter comments here" name="comment" rows="3"></textarea>
+
+			<input type="submit" value="Submit">
+		</form>
+	</div>
+</body>
+</html>

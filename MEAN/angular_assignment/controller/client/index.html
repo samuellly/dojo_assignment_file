@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+  <head>
+    <meta charset="utf-8">
+    <title>Controlling Users</title>
+    <link data-require="bootstrap-css@*" data-semver="4.0.0-alpha.4" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src='/angular/angular.js'></script>
+    <script>
+      var app = angular.module('app', []);
+      app.controller('userController', ['$scope', function($scope) {
+        $scope.users = []
+        $scope.addUser = function() {
+          $scope.users.push( {
+            name:$scope.user.name,
+            car:$scope.user.car,
+            date_added: new Date()
+          });
+          $scope.user.name = '';
+          $scope.user.car = '';
+        }
+        $scope.removeUser = function(user) {
+          var index = $scope.users.indexOf(user);
+          $scope.users.splice(index,1);
+        }
+      }])
+    </script>
+  </head>
+  <body>
+    <div class="container" ng-controller='userController'>
+      <form ng-submit='addUser()'>
+        <input type="text" placeholder="Name" value="" ng-model="user.name">
+        <input type="text" placeholder="Favorite car" value="" ng-model="user.car">
+        <input class="btn btn-info btn-xs" type="submit" name="" value="Add car you like">
+      </form>
+      <hr>
+      <input ng-model="search" placeholder="Search">
+      <hr>
+      <table class="table">
+        <thead>
+          <tr>
+            <th ng-click="sortBy = 'name'; sortReverse = !sortReverse">Name</th>
+            <th ng-click="sortBy = 'car'; sortReverse = !sortReverse">Favorite car</th>
+            <th ng-click="sortBy = 'date_added'; sortReverse = !sortReverse">Date</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="user in users | filter:search | orderBy:sortBy:sortReverse ">
+            <td>{{ user.name }}</td>
+            <td>{{ user.car }}</td>
+            <td>{{ user.date_added | date:'medium'}}</td>
+            <td><button class="btn btn-danger btn-xs"ng-click="removeUser(user)">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <hr>
+    </div>
+  </body>
+</html>

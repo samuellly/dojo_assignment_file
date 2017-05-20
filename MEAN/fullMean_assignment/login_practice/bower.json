@@ -1,0 +1,25 @@
+{
+  "name": "login_practice",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "sam Hur <gjqorgus900327@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/CDSeattleMEAN032017/samhur_MEAN",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "font-awesome": "^4.7.0",
+    "angular": "^1.6.3",
+    "angular-route": "^1.6.3",
+    "angular-messages": "^1.6.3",
+    "jquery": "^3.2.1",
+    "materialize": "^0.98.0"
+  }
+}

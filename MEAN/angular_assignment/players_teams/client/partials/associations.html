@@ -1,0 +1,43 @@
+<div class="container" ng-controller='AssociationsController'>
+    <div class='row'>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <h1 class="text-center">Associations</h1>
+                <form action="" class="form-inline" ng-submit="assignPlayer()">
+                    <div class="form-group">
+                        <label>Player</label>
+                        <select ng-model='assignment.player' class="form-control">
+                    <option ng-repeat='player in players' value='{{$index}}'>{{player.name}}</option>
+                </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Player</label>
+                        <select ng-model='assignment.team' class="form-control">
+                    <option ng-repeat='team in teams' value='{{team.name}}'>{{team.name}}</option>
+                </select>
+                    </div>
+                    <button type='submit' class='btn btn-primary'>Assign Player to Team</button>
+                </form>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <table class="table table-striped">
+                    <thead>
+                        <th>Name</th>
+                        <th>Team</th>
+                        <th>Actions</th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="player in players">
+                            <td>{{player.name}}</td>
+                            <td>{{player.team}}
+                                <td><button ng-if="player.team !== ''" type="button" class="btn btn-danger" ng-click='removeAssign($index)'>Remove Association</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

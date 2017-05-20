@@ -1,0 +1,28 @@
+<h1 class="text-center">Friends!</h1>
+<hr>
+<div class="col-md-8">
+    <table class="table table-striped">
+        <thead>
+            <th>Name</th>
+            <th>Show</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="friend in friends | birthdayFilter:date_filter">
+                <td>{{friend.first_name | capitalize}} {{friend.last_name | capitalize}}</td>
+                <td><a href="#!/show/{{friend._id}}">Show</a></td>
+                <td><a href="#!/edit/{{friend._id}}">Edit</a></td>
+                <td><a href="#" ng-click='removeFriend(friend._id)'>Delete</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="col-md-4">
+    <p class="lead">Filter by Birthdate!</p>
+    <input type="date" class="form-control" ng-model="date_filter">
+    <hr>
+    <a href="#!/new">
+        <button class="btn btn-primary btn-block">Create New Friend</button>
+    </a>
+</div>

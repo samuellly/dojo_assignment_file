@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Success</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'loginreg/css/success.css' %}">
+  </head>
+  <body>
+    <h2>Success! Welcome {{user.first_name}}.</h2>
+    {% for message in messages %}
+    {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+    <h4>{{message}}</h5>
+    {% endif %}
+    {% endfor %}
+  </body>
+</html>

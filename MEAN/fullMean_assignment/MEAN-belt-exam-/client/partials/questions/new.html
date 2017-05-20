@@ -1,0 +1,29 @@
+<div class="row" style="margin-top: 20px;">
+  <div class="col-xs-8 ">
+    <a href="#/" class="btn btn-primary">Home</a>
+  </div>
+  <div class="col-xs-4" >
+    <a href="#/logout" class="btn btn-warning pull-right">Logout</a>
+  </div>
+  <h1 class="col-xs-12">New Question</h1>
+  <form class="form clearfix col-xs-12">
+    <div class="form-group">
+      <label class="form-label">Question</label>
+      <textarea name="newQuestion.text" ng-model="newQuestion.text" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Description (optional)</label>
+      <textarea name="newQuestion.description" ng-model="newQuestion.description" class="form-control"></textarea>
+    </div>
+    <div class="pull-right">
+      <button type="button" class="btn btn-warning" ng-click="cancelQuestion()">Cancel</button>
+      <button type="button" class="btn btn-primary" ng-click="createQuestion()">Submit</button>
+    </div>
+
+  </form>
+</div>
+<div class="row">
+  <p ng-repeat="error in errors" class="bg-warning col-xs-12">
+    {{ error.message }}
+  </p>
+</div>

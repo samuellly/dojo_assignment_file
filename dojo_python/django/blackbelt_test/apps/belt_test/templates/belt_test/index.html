@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quotes</title>
+    <style type="text/css">
+    div {
+      width: 500px;
+      height: 300;
+      border: 10px solid black;
+      margin: auto;
+      padding: 25px;
+      color: #1ab188;
+      
+      }
+
+    </style>
+</head>
+<body>
+    <h1>Welcome, {{ request.session.user.name }}!</h1>
+    <a href="{% url 'login:logout' %}">Logout</a>
+    <div class='other'>
+    <h2>Quotable Quotes</h2>
+        {% for quote in all_quotes %}
+            {% if logged_in_user not in quote.favorite.all %}
+            <p>{{ quote.quoter }}: {{ quote.message }}</p>
+            <h5>Posted by <a href="{% url 'quote:show' quote.posted_quote.id %}">{{ quote.posted_quote.name }}</a></h5>
+            <td><a href="{% url 'quote:fave_quote' quote.id %}">Add to My List</a></td>
+            {% endif %}
+        {% endfor %}
+      </div>
+    <div class='your'>
+    <h2>Your Favorites</h2>
+      {% for quote in fave_quotes %}
+        {% if logged_in_user in quote.favorite.all %}
+        <p>{{ quote.quoter }}: {{ quote.message }}</p>
+            <h5>Posted by <a href="{% url 'quote:show' quote.posted_quote.id %}">{{ quote.posted_quote.name }}</a></h5>
+            <td><a href="{% url 'quote:remove' quote.id %}">Remove from my list</a></td>
+            {% endif %}
+        {% endfor %}
+    </div>
+    <h2>Contribute a Quote:</h2>
+    {% if messages %}
+        {% for message in messages %}
+            <h5>{{ message }}</h5>
+        {% endfor %}
+    {% endif %}
+    <form action="{% url 'quote:add_quote' %}" method="POST">
+        {% csrf_token %}
+        <p>Quoted By: <input type="text" name="quoter"></p>
+        <p>Message: <input type="text" name="message"></p>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name" : "songApp",
+  "version" : "1.0.0",
+  "description" : "Using bollywood api tp play music",
+  "author" : "Pavan Kumar",
+  "main" : "server.js",
+  "dependencies" : {
+    "express" : "latest",
+    "mongoose" : "latest",
+    "body-parser" : "latest",
+    "morgan" : "latest"
+  }
+}

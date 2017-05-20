@@ -1,0 +1,31 @@
+<div *ngIf="loading == true" class="loader"></div>
+    <section id="portfolio" style="display:none"  >
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Album</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 portfolio-item" *ngFor="let res of Artist | paginate: { itemsPerPage: 20, currentPage: p }" >
+                    <a id = '{{res.Album}}' href="#" class="portfolio-link" data-toggle="modal" (click)="imgClick(res)">
+                        <figure>
+                        <img src={{res.Albumimg}} class="img-responsive" alt="">      
+                        <figcaption>
+                            <p>{{res.Album}}</p>
+                        </figcaption>
+                        </figure>
+                     </a>
+                     <p class = "albumtitle">{{res.Album}}</p>
+                     <p class = "albumtitle">{{res.AlbumDate}}</p>
+                     <p class = "albumtitle">{{res.Artist}}</p>
+                </div>
+            </div>
+        </div>
+</section>
+<div *ngIf="loading == false">
+<pagination-controls (pageChange)="p = $event" #api></pagination-controls>
+</div>
+<bugssearchResult></bugssearchResult>
+ 

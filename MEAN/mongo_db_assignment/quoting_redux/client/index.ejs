@@ -1,0 +1,76 @@
+<html>
+  <head>
+    <title>Inspire</title>
+
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+
+    <style type="text/css">
+      html {
+  /*      width:970px;
+*/        margin:0 auto;
+        /*background-image: transparent url("beach.png") top left no-repeat;*/
+      }
+
+      body{
+        background-image: url(https://images.unsplash.com/photo-1426260193283-c4daed7c2024?q=80&fm=jpg&s=aee6826139f1deca98d1bc4b09ada8c3);
+          background-position: center center;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+        background-size: cover;
+        background-color: #464646;
+      }
+
+      form{
+        margin-top: 50px;
+        padding: 40px;
+        border:3px solid lightgray;
+        background: transparent;
+        width:400px;
+        margin-left: 30%;
+        background-color: white;
+        /*opacity:.50;*/
+          /*-moz-opacity:.50; */
+          /*filter:alpha(opacity=50); */
+        border-radius: 10px;
+      }
+
+      button{
+        float:right;
+      }
+
+      h4{
+        margin-top: 0px;
+        margin-bottom: 26px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <h1>Welcome to Inspire</h1><em>~ Your open source to daily inspirational quotes </em>
+
+    <!-- error message -->
+    <div style="color: red"> <%= errors %></div>
+
+    <form align="center" action="/main" method="post" class="form-inline">
+      <h4> Share and Read Today's Quotes </h4>
+      <div class="form-group">
+        Your Name: <input type="text" name="name"><br><br>
+        Quote: <textarea name="quote" cols="30" rows="3"></textarea><br><br>
+        <input type="submit" name="Add Quote" class="btn btn-default">
+        <button align="center" class="btn btn-default"><a href="/main">Skip to Quote</a></button>
+      </div>
+    </form>
+
+
+
+
+  </body>
+</html>

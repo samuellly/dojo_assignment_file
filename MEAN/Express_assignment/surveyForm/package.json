@@ -1,0 +1,9 @@
+{
+	"name": "surveyForm",
+	"description": "I-Express: Survey Form",
+	"dependencies": {
+		"body-parser": "^1.14.2",
+		"ejs": "^2.4.1",
+		"express": "^4.13.4"
+	}
+}

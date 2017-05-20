@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="description" content="Coding Dojo C#/ASP.NET assignment Time Display">
+	<title>Time Display</title>
+	<link rel="stylesheet" href="~/css/css_boilerplate.css">
+</head>
+<body>
+	<main id="main" class="forty">
+		<h4>The current time and date:</h4>
+		@{ <!--initially sets date and time-->
+			DateTime CurrentDate = DateTime.Today;
+			DateTime CurrentTime = DateTime.Now;
+			string CurrDate = CurrentDate.ToString("MMM dd, yyyy");
+			string CurrTime = CurrentTime.ToString("T");
+		}
+		<h1 id="date">@CurrDate</h1>
+		<h1 id="time">@CurrTime</h1>
+	</main>
+	<script type="text/javascript">
+		function formatTime(time) { //formats the current time
+			var hours = time.getHours(), //gets the hours as passed
+				minutes = time.getMinutes(), //gets the minutes as passed
+				seconds = time.getSeconds(), //gets the seconds as passed
+				ampm = hours >= 12 ? 'PM' : 'AM'; //sets AM or PM depending on the current time
+			hours = hours % 12; //reduces 24 hour time to AM/PM time (aside from midnight)
+			hours = hours ? hours : 12; //if hours equals 0 (midnight), then make it 12
+			minutes = minutes < 10 ? '0' + minutes : minutes; //if minutes are single digit, add a leading 0
+			seconds = seconds < 10 ? '0' + seconds : seconds; //if seconds are single digit, add a leading 0
+			var strTime = hours + ':' + minutes + ':' + seconds + ' ' + ampm; //concatenate the string with formatted time
+			return strTime;
+		}
+
+		function formatDate(date) { //formats the current date
+			var month = date.getMonth(), //gets the month as passed
+				day = date.getDate(), //gets the day as passed
+				year = date.getFullYear(), //gets the year as passed
+				monthArr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']; //creates an array storing month values
+			month = monthArr[month]; //retrieves the month string value based on the returned month number (starts at index 0--0 is Jan, 1 is Feb...)
+			day = day < 10 ? '0' + day : day; //if the day is single digit, add a leading 0
+			var strDate = month + ' ' + day + ', ' + year; //concatenate the string with the formatted date
+			return strDate;
+		}
+
+		function reload(){ //reloads the h1 elements as the time changes
+			var time = document.getElementById('time'), //retrieves the time h1
+				date = document.getElementById('date'), //retrieves the date h1
+            	current = new Date(), //creates a date object based on local date/time
+				timeContent = formatTime(current), //formats the time
+				dateContent = formatDate(current); //formats the date
+            time.innerHTML = timeContent; //changes the time value in the h1 dynamically
+			if (timeContent == '12:00:00 AM') {
+				date.innerHTML = dateContent; //changes the date value in the h1 dynamically at midnight
+			}
+        }
+
+		setInterval(function(){ //sets an interval time to reload the h1 elements every second
+			reload();
+		}, 1000);
+	</script>
+</body>
+</html>

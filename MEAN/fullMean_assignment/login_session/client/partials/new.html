@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>New</title>
+	<link rel="stylesheet" type="text/css" href="./static/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="./static/style.css">
+</head>
+<body>
+
+	<h1 class = "col-xs-offset-5">New User</h1>
+	<div ng-controller = "friendController">
+		<form ng-submit = "create()" class = "col-xs-offset-5">
+			<table class = "table-striped">
+				<tr>
+					<td>First Name:</td>
+					<td><input type="text" name="fname" placeholder="First Name" ng-model = 'newFriend.fname'></td>
+				</tr>
+				<tr>
+					<td>Last Name:</td>
+					<td><input type="text" name="lname" placeholder="Last Name" ng-model = 'newFriend.lname'></td>
+				</tr>
+				<tr>
+					<td>Birthday:</td>
+					<td><input type="date" name="dob" ng-model = 'newFriend.dob'></td>
+				</tr>
+				<tr>
+					<td><input type="Submit" name="submit" value="Create User"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+
+</body>
+</html>

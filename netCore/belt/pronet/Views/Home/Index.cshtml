@@ -1,0 +1,69 @@
+@{
+    ViewData["Title"] = "Log In / Registration";
+}
+@model pronet.Models.RegisterViewModel
+<style>
+    .error {
+        color: red;
+    }
+</style>
+<div class="ui container">
+    <div id="registration_grid" class="ui equal wide grid">
+        <div class="six wide column">
+            <h1 style="font-family: 'Brush Script MT', cursive; font-size: 60px; text-align: center;">Professional Network</h1>
+            <div class="ui segment">
+                <h1>Log In</h1>
+                <form action="login" method="post" class="ui form">
+                    <div class="field">
+                        <label>Email</label>
+                        <input type="email" name="Email" placeholder="Email" required>
+                    </div>
+                    <div class="field">
+                        <label>Password</label>
+                        <input type="password" name="Password" placeholder="Password" required>
+                    </div>
+                    <span class="error">@ViewBag.login_error</span>
+                    <div>
+                        <button class="ui primary button" type="submit">Log In</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="six wide column">
+            <div class="ui segment">
+                <h1>Registration</h1>
+                <form asp-controller="Home" asp-action="register" method="post" class="ui form">
+                    <div class="field">
+                        <label>Name</label>
+                        <input asp-for="Name" type="text" name="Name" placeholder="Name">
+                        <span class="error" asp-validation-for="Name"></span>
+                    </div>
+                    <div class="field">
+                        <label>Email</label>
+                        <input asp-for="Email" type="email" name="Email" placeholder="Email">
+                        <span class="error" asp-validation-for="Email"></span>
+                    </div>
+                    <div class="field">
+                        <label>Password</label>
+                        <input asp-for="Password" type="Password" name="Password" placeholder="Password">
+                        <span class="error" asp-validation-for="Password"></span>
+                    </div>
+                    <div class="field">
+                        <label>Password Confirm</label>
+                        <input class="error" asp-for="Password_confirmation" type="password" name="Password_confirmation" placeholder="Password Confirm">
+                        <span class="error" asp-validation-for="Password_confirmation"></span>
+                    </div>
+                    <div class="field">
+                        <label>Description</label>
+                        <textarea asp-for="Description" type="text" name="Description"></textarea>
+                        <span class="error" asp-validation-for="Description"></span>
+                    </div>
+                    <span class="error">@ViewBag.reg_error</span>
+                    <div>
+                        <button class="ui primary button" type="submit">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="row" style="margin-top: 20px;">
+  <div class="col-xs-8 ">
+    <a href="#/" class="btn btn-primary">Home</a>
+  </div>
+  <div class="col-xs-4" >
+    <a href="#/logout" class="btn btn-warning pull-right">Logout</a>
+  </div>
+  <div class="col-xs-12">
+    <h1>{{ question.text }}</h1>
+    <h2>{{ question.description }}</h2>
+    <a href="#/questions/{{ question._id}}/answers/new" class="btn btn-primary center-block">Answer this Question</a>
+  </div>
+</div>
+<div id="answers" class="row" style="margin-top: 20px;">
+  <div class="answer col-xs-12 clearfix " ng-repeat="answer in question._answers | orderBy : 'likes' : -1">
+    <div class="well well-sm">
+      <div class="pull-right">
+        {{ answer.likes }} likes
+        <button class="btn btn-success" ng-click="likeAnswer(answer)">Like!</button>
+      </div>
+      <h3>{{ answer.author }}</h3>
+      <h4>{{ answer.text }}</h4>
+      <h5>{{ answer.description }}</h5>
+    </div>
+  </div>
+</div>

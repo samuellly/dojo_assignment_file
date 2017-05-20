@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show User</title>
+</head>
+<body>
+    <a href="{% url 'quote:index' %}">Dashboard</a>
+    <a href="{% url 'login:logout' %}">Logout</a>
+    <h2>Posts by {{user.name}}</h2>
+    <h2>Count: {{ user.user_quote.count }}</h2>
+    {% for quote in posted_quotes %}
+        <h3>{{ quote.quoter }}: {{ quote.message }}</h3>
+    {% endfor %}
+</body>
+</html>

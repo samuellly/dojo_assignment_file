@@ -1,0 +1,27 @@
+{
+  "name": "dojo_question",
+  "description": "blackbelt_question",
+  "main": "server.js",
+  "authors": [
+    "sam Hur <gjqorgus900327@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/CDSeattleMEAN032017/samhur_MEAN",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.3",
+    "angular-route": "^1.6.3",
+    "angular-cookie": "^4.1.0",
+    "jquery": "^3.2.1",
+    "bootstrap": "^3.3.7",
+    "ng-file-upload": "^12.2.13",
+    "ngmap": "^1.18.4",
+    "angular-cookies": "^1.6.3"
+  }
+}

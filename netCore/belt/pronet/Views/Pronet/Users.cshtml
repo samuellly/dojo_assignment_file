@@ -1,0 +1,22 @@
+<a href="/profile">My Profile | </a>
+<a href="/logout">Log Out</a>
+
+<h1>Users you may want to connect with:</h1>
+<table class="ui celled table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var User in ViewBag.allUsers) {
+            if (User.UserID != ViewBag.curUser.UserID) {
+                <tr>
+                    <td><a href="users/@User.UserID">@User.Name</a></td>
+                    <td><a href="invite/@User.UserID">Connect</a></td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

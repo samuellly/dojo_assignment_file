@@ -1,0 +1,32 @@
+body {
+	width: 500px;
+	margin: 0px auto;
+	border: 1px solid #ff0000;
+	font-family: Verdana, sans-serif;
+	text-align: center;
+}
+
+h1 {
+	color: #ff0000;
+	font-weight: bold;
+	background-color: #dddddd;
+}
+
+.header {
+	background-color: #cccccc;
+}
+
+ul {
+	margin: 0px;
+	padding: 0px;
+}
+	li {
+		display: inline-block;
+		list-style: none;
+		text-align: left;
+		margin: 20px 0px 20px 0px;
+	}
+
+input {
+	margin: 20px 0px 20px 0px;
+}

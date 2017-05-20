@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dojo message board</title>
+  <!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<!-- 부가적인 테마 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+  <h1>The dojo message board</h1>
+  <hr>
+  <form method="post" action="/messages">
+    <label for="name">Name:</label>
+    <br>
+     <input type="text" name="name" require>
+     <br>
+     <label for="message">Post a Message:</label>
+     <br>
+     <textarea name="message" require></textarea>
+     <input type="submit" value='post message'>
+  </form>
+  <br>
+  <% for(index in messages){ %>
+    <div id="mess-area">
+      <label>Name: <%= messages[index].name %></label>
+      <p>Message: <%= messages[index].message %></p>
+      <div id="comm-area">
+
+        <% for(var indexX = 0; indexX < messages[index].comments.length; indexX++){ %>
+
+        <label>Name: <%= messages[index].comments[indexX].name %></label>
+        <p>Comment: <%= messages[index].comments[indexX].comment %></p>
+        <% } %>
+        <form method="post" action="/comments" id="comm-form">
+          <label for="name">Name:</label>
+          <br>
+           <input type="text" name="name">
+           <br>
+           <input type="hidden" name="_Message" value="<%= messages[index]._id %>">
+          <label for="message">Post a Comment:</label>
+           <br>
+           <textarea name="comment"></textarea>
+           <input type="submit" value='post comment'>
+           <br>
+        </form>
+      </div>
+    </div>
+  <% } %>
+</body>
+</html>
